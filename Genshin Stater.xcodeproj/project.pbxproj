@@ -14,9 +14,12 @@
 		B65D855B272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */; };
 		B65D855D272901CF00A0FB50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65D855C272901CF00A0FB50 /* Assets.xcassets */; };
 		B65D8560272901CF00A0FB50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */; };
+		E7F2A8AF1868A62C55C7710F /* Pods_Genshin_Stater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E091F17858013F575C09AE8 /* Pods_Genshin_Stater.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		103F764880D9FE9D097B11A1 /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genshin Stater.debug.xcconfig"; path = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
+		5E091F17858013F575C09AE8 /* Pods_Genshin_Stater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Genshin_Stater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65D854D272901CD00A0FB50 /* Genshin Stater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Genshin Stater.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65D8550272901CD00A0FB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B65D8552272901CD00A0FB50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		B65D855C272901CF00A0FB50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B65D855F272901CF00A0FB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B65D8561272901CF00A0FB50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6D8A605830E9FECD04F74BB /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genshin Stater.release.xcconfig"; path = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F2A8AF1868A62C55C7710F /* Pods_Genshin_Stater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30BE1DE0CB44706F3CA00F46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				103F764880D9FE9D097B11A1 /* Pods-Genshin Stater.debug.xcconfig */,
+				B6D8A605830E9FECD04F74BB /* Pods-Genshin Stater.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		496ACADB7DF436580AC1C557 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E091F17858013F575C09AE8 /* Pods_Genshin_Stater.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B65D8544272901CD00A0FB50 = {
 			isa = PBXGroup;
 			children = (
 				B65D854F272901CD00A0FB50 /* Genshin Stater */,
 				B65D854E272901CD00A0FB50 /* Products */,
+				30BE1DE0CB44706F3CA00F46 /* Pods */,
+				496ACADB7DF436580AC1C557 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +102,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B65D8564272901CF00A0FB50 /* Build configuration list for PBXNativeTarget "Genshin Stater" */;
 			buildPhases = (
+				FF4E2B0A839B1C5B657387D1 /* [CP] Check Pods Manifest.lock */,
 				B65D8549272901CD00A0FB50 /* Sources */,
 				B65D854A272901CD00A0FB50 /* Frameworks */,
 				B65D854B272901CD00A0FB50 /* Resources */,
@@ -135,6 +161,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF4E2B0A839B1C5B657387D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Genshin Stater-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B65D8549272901CD00A0FB50 /* Sources */ = {
@@ -288,6 +339,7 @@
 		};
 		B65D8565272901CF00A0FB50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 103F764880D9FE9D097B11A1 /* Pods-Genshin Stater.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +368,7 @@
 		};
 		B65D8566272901CF00A0FB50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6D8A605830E9FECD04F74BB /* Pods-Genshin Stater.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

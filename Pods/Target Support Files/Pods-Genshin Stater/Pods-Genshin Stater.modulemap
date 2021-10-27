@@ -1,0 +1,6 @@
+framework module Pods_Genshin_Stater {
+  umbrella header "Pods-Genshin Stater-umbrella.h"
+
+  export *
+  module * { export * }
+}
