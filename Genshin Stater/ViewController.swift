@@ -7,6 +7,10 @@
 
 import UIKit
 
+class CharacterContainer {
+    
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
