@@ -32,19 +32,51 @@ enum CharacterRarity{
 }
 
 class SCharacter: CustomStringConvertible{
-    var NSCharacter: Character!
-    var name = ""
-    var level = 0
-    var rarity = 0
-    var element = ""
-    var weapon = ""
-    var mainRole = ""
-    var ascension = ""
-    var baseHP = 0
-    var baseATK = 0
-    var baseDEF = 0
-    var rating: Double = 0.0
+    var NSCharacter:Character
+    var name:String
+    var level:Int
+    var rarity:Int
+    var element:String
+    var weapon:String
+    var mainRole:String
+    var ascension:String
+    var baseHP: Int
+    var baseATK: Int
+    var baseDEF: Int
+    var rating:Double
 
+    init(){
+        self.NSCharacter = Character()
+        self.name = "Undefined"
+        self.level = 0
+        self.rarity = 0
+        self.weapon = "Undefined"
+        self.element = "Undefined"
+        self.mainRole = "Undefined"
+        self.ascension = "Undefined"
+        self.baseHP = 0
+        self.baseDEF = 0
+        self.baseATK = 0
+        self.rating = 0.0
+    }
+
+
+    init(character: Character) {
+        self.NSCharacter = character
+        self.name = character.name!
+        self.level = Int("\(character.level)")!
+        self.rarity = Int("\(character.rarity)")!
+        self.weapon = character.weapon!
+        self.element = character.element!
+        self.mainRole = character.mainRole!
+        self.ascension = character.ascension!
+        self.baseHP = Int("\(character.baseHP)")!
+        self.baseDEF = Int("\(character.baseDEF)")!
+        self.baseATK = Int("\(character.baseATK)")!
+        self.rating = character.rating
+    }
+
+    
     public var description: String{
         return String("[name:\(name)\tlevel:\(level)\trarity:\(rarity)\telement:\(element)\tweapon:\(weapon)\tmainRole:\(mainRole)\tascension:\(ascension)\tbaseHP:\(baseHP)\tbaseATK:\(baseATK)\tbaseDEF:\(baseDEF)\trating:\(rating)]")
     }
@@ -103,31 +135,7 @@ func exportDataFromCoreData()-> [SCharacter]{
     do {
         let result = try context.fetch(request)
         for data in result as! [NSManagedObject] {
-            var newSCharacter = SCharacter()
-            newSCharacter.NSCharacter = (data as! Character)
-            newSCharacter.name = data.value(forKey: "name") as! String
-            if let num = data.value(forKey: "level") as? NSNumber {
-                newSCharacter.level = num.intValue
-            }
-            if let num = data.value(forKey: "rarity") as? NSNumber {
-                newSCharacter.rarity = num.intValue
-            }
-            newSCharacter.element   = data.value(forKey: "element") as! String
-            newSCharacter.weapon    = data.value(forKey: "weapon") as! String
-            newSCharacter.mainRole  = data.value(forKey: "mainRole") as! String
-            newSCharacter.ascension = data.value(forKey: "ascension") as! String
-            if let num = data.value(forKey: "baseHP") as? NSNumber {
-                newSCharacter.baseHP = num.intValue
-            }
-            if let num = data.value(forKey: "baseATK") as? NSNumber {
-                newSCharacter.baseATK = num.intValue
-            }
-            if let num = data.value(forKey: "baseDEF") as? NSNumber {
-                newSCharacter.baseDEF = num.intValue
-            }
-            if let num = data.value(forKey: "rating") as? NSNumber {
-                newSCharacter.rating = num.doubleValue
-            }
+            var newSCharacter = SCharacter(character: (data as! Character))
             SCharacters.append(newSCharacter)
         }
         print("Fetching data finished")
@@ -233,19 +241,7 @@ func getCharacterByName(_ nameP: String)->[SCharacter]{
     do{
         Characters = try context.fetch(request) as! [Character]
         Characters.forEach{character in
-            let newCharacter = SCharacter()
-            newCharacter.NSCharacter = character
-            newCharacter.name = character.name!
-            newCharacter.level = Int("\(character.level)")!
-            newCharacter.rarity = Int("\(character.rarity)")!
-            newCharacter.weapon = character.weapon!
-            newCharacter.element = character.element!
-            newCharacter.mainRole = character.mainRole!
-            newCharacter.ascension = character.ascension!
-            newCharacter.baseHP = Int("\(character.baseHP)")!
-            newCharacter.baseDEF = Int("\(character.baseDEF)")!
-            newCharacter.baseATK = Int("\(character.baseATK)")!
-            newCharacter.rating = character.rating
+            let newCharacter = SCharacter(character: character)
             certainCharacterByName.append(newCharacter)
         }
     }catch{

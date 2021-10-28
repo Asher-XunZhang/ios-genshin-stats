@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(deleteDataFromCoreData(characters[characters.count-1]))
 //        characters = exportDataFromCoreData()
 //        print(characters[characters.count-1])
-//        print(Genshin_Stater.getCharacterByName("Kokomi"))
+        print(Genshin_Stater.getCharacterByName("Kokomi"))
         
         return true
     }
