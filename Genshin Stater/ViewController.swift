@@ -45,6 +45,21 @@ struct CharacterItem {
         name = initdata.name
         rarity = CharacterRarity.get(initdata.rarity)
         role = initdata.mainRole
+        data.append(initdata)
+    }
+    
+    init(){
+        print(1)
+        let temp = SCharacter()
+        name = temp.name
+        rarity = CharacterRarity.get(temp.rarity)
+        role = temp.mainRole
+        
+        data.append(temp)
+//        if addDataToCoreData(temp) {
+//            data.append(temp)
+//        }
+        print(2)
     }
 }
 
@@ -62,12 +77,63 @@ class CharacterContainer {
             }
         }
     }
+    
+    func createNewCharacter(){
+        var newItem = CharacterItem()
+        let count = self.indexRef.reduce(0, {c, item in
+            print(4)
+            if newItem.name == item.value {
+                return c + 1
+            }else{
+                return c
+            }})
+        
+        if count > 0 {
+            print(5)
+//            changeDataFromCoreData((newItem.data)[0], newValue: "\(newItem.name)\(count)", forKey: "name")
+            newItem.name = "\(newItem.name)\(count)"
+//            newItem.data.last?.name = newItem.name
+//            newItem.data.last?.NSCharacter.name = newItem.name
+            //TODO: update the data
+            print(8)
+            characters["\(newItem.name)\(count)"] = newItem
+        }else{
+            characters["\(newItem.name)"] = newItem
+        }
+        
+        print(16)
+        // add to the table
+        if !indexRef.isEmpty {
+            indexRef[characters.count - 1] = indexRef[0]
+            indexRef[0] = newItem.name
+            print(indexRef)
+        }else{
+            self.indexRef[0] = newItem.name
+        }
+        print(3)
+    }
 }
 
 class MainViewController : UIViewController {
     var tableView : CharacterViewController!
     @IBAction func toggleEdit(){
         tableView.setEditing(!tableView.isEditing, animated: true)
+        //TODO: add deletate for remove action
+        
+    }
+    
+    @IBAction func create(){
+        print(6)
+        //TODO: create new character
+        tableView.content.createNewCharacter()
+        print(90)
+
+        self.tableView.tableView.beginUpdates()
+        print(900)
+        self.tableView.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+        print(9000)
+        self.tableView.tableView.endUpdates()
+        print(91)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,6 +159,7 @@ class CharacterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterGeneral", for: indexPath) as! CharacterCell
+        print(self.content.characters[self.content.indexRef[0]!])
         let item = content.characters[content.indexRef[indexPath.row]!]
         cell.characterName.text = item?.name
         cell.characterRarity.image = UIImage(named: "star_\(item!.rarity.value())")

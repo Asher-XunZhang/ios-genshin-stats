@@ -30,6 +30,9 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             </preferredSymbolConfiguration>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="create" destination="khZ-Wo-U3H" eventType="touchDown" id="8SO-cv-tnO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genshin Stater" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtN-9P-wAD">
                                         <rect key="frame" x="150.5" y="0.0" width="113" height="60"/>

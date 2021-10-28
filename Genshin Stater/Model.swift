@@ -48,8 +48,8 @@ class SCharacter: CustomStringConvertible{
     init(){
         self.NSCharacter = Character()
         self.name = "Undefined"
-        self.level = 0
-        self.rarity = 0
+        self.level = 1
+        self.rarity = 4
         self.weapon = "Undefined"
         self.element = "Undefined"
         self.mainRole = "Undefined"
@@ -90,6 +90,7 @@ func importDataToCoreData(_ csvName: String){
         lines = lines.filter({$0 != ""})
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+        //TODO: Remove in the future
         print("Reset Core Data...")
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -99,6 +100,7 @@ func importDataToCoreData(_ csvName: String){
         } catch {
             print ("There is an error in deleting records")
         }
+        //TODO: Remove in the future above
         
         print("Saving Data..")
         for line in lines{
