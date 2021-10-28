@@ -6,6 +6,5 @@ target 'Genshin Stater' do
   use_frameworks!
   
   # Pods for Genshin Stater
-  pod "SwiftCSV"
   
 end
