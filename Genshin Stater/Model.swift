@@ -193,3 +193,40 @@ func changeDataFromCoreData(_ changeObj: SCharacter, newValue:Any, forKey:String
     }
 }
 
+func getCharacterByName(_ nameP: String)->[SCharacter]{
+    var certainCharacterByName:[SCharacter] = []
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+    
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
+    let predicate = NSPredicate(format: "name == %@", nameP)
+    let sort = NSSortDescriptor(key: "level", ascending: true)
+    request.sortDescriptors = [sort]
+    request.predicate = predicate
+    
+    var Characters:[Character] = []
+    print("Fetching Data..")
+    do{
+        Characters = try context.fetch(request) as! [Character]
+        Characters.forEach{character in
+            let newCharacter = SCharacter()
+            newCharacter.NSCharacter = character
+            newCharacter.name = character.name!
+            newCharacter.level = Int("\(character.level)")!
+            newCharacter.rarity = Int("\(character.rarity)")!
+            newCharacter.weapon = character.weapon!
+            newCharacter.element = character.element!
+            newCharacter.mainRole = character.mainRole!
+            newCharacter.ascension = character.ascension!
+            newCharacter.baseHP = Int("\(character.baseHP)")!
+            newCharacter.baseDEF = Int("\(character.baseDEF)")!
+            newCharacter.baseATK = Int("\(character.baseATK)")!
+            newCharacter.rating = character.rating
+            certainCharacterByName.append(newCharacter)
+        }
+    }catch{
+        print("Fetching Data failed")
+    }
+    return certainCharacterByName
+}
