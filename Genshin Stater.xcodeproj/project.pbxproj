@@ -14,6 +14,7 @@
 		B65D855B272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */; };
 		B65D855D272901CF00A0FB50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65D855C272901CF00A0FB50 /* Assets.xcassets */; };
 		B65D8560272901CF00A0FB50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */; };
+		B6DC137D272A5C0500A32B8B /* NiceColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DC137C272A5C0400A32B8B /* NiceColor.xcassets */; };
 		E7F2A8AF1868A62C55C7710F /* Pods_Genshin_Stater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E091F17858013F575C09AE8 /* Pods_Genshin_Stater.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		B65D855F272901CF00A0FB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B65D8561272901CF00A0FB50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6D8A605830E9FECD04F74BB /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genshin Stater.release.xcconfig"; path = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
+		B6DC137C272A5C0400A32B8B /* NiceColor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NiceColor.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */,
 				B65D8561272901CF00A0FB50 /* Info.plist */,
 				B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */,
+				B6DC137C272A5C0400A32B8B /* NiceColor.xcassets */,
 			);
 			path = "Genshin Stater";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6DC137D272A5C0500A32B8B /* NiceColor.xcassets in Resources */,
 				B65D8560272901CF00A0FB50 /* LaunchScreen.storyboard in Resources */,
 				B65D855D272901CF00A0FB50 /* Assets.xcassets in Resources */,
 				B65D8558272901CD00A0FB50 /* Main.storyboard in Resources */,
