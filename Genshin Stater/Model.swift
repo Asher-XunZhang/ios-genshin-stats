@@ -8,9 +8,9 @@
 import UIKit
 import CoreData
 
-class SCharacter{
+class SCharacter: CustomStringConvertible{
     var NSCharacter: Character!
-    var character = ""
+    var name = ""
     var level = 0
     var rarity = 0
     var element = ""
@@ -20,8 +20,12 @@ class SCharacter{
     var baseHP = 0
     var baseATK = 0
     var baseDEF = 0
+    var rating: Double = 0.0
+    
+    public var description: String{
+        return String("[name:\(name)\tlevel:\(level)\trarity:\(rarity)\telement:\(element)\tweapon:\(weapon)\tmainRole:\(mainRole)\tascension:\(ascension)\tbaseHP:\(baseHP)\tbaseATK:\(baseATK)\tbaseDEF:\(baseDEF)\trating:\(rating)]")
+    }
 }
-
 
 func importDataToCoreData(_ csvName: String){
     let filepath = Bundle.main.path(forResource: csvName, ofType: "csv")
@@ -31,21 +35,21 @@ func importDataToCoreData(_ csvName: String){
         lines = lines.filter({$0 != ""})
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-            print("Reset Core Data...")
-            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-            do {
-                try context.execute(deleteRequest)
-                try context.save()
-            } catch {
-                print ("There is an error in deleting records")
-            }
+        print("Reset Core Data...")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There is an error in deleting records")
+        }
         
         print("Saving Data..")
         for line in lines{
             let values = line.split(separator: ",")
             let newCharacter  = Character(context: context)
-            newCharacter.setValue(String(values[0]), forKey: "character")
+            newCharacter.setValue(String(values[0]), forKey: "name")
             newCharacter.setValue(Int32(values[1])!, forKey: "level")
             newCharacter.setValue(Int32(values[2])!, forKey: "rarity")
             newCharacter.setValue(String(values[3]), forKey: "element")
@@ -55,6 +59,7 @@ func importDataToCoreData(_ csvName: String){
             newCharacter.setValue(Int32(values[7])!, forKey: "baseHP")
             newCharacter.setValue(Int32(values[8])!, forKey: "baseATK")
             newCharacter.setValue(Int32(values[9])!, forKey: "baseDEF")
+            newCharacter.setValue(Double(0.0), forKey: "rating")
             do {
                 try context.save()
                 print("Storing data finished")
@@ -77,7 +82,7 @@ func exportDataFromCoreData()-> [SCharacter]{
         for data in result as! [NSManagedObject] {
             var newSCharacter = SCharacter()
             newSCharacter.NSCharacter = (data as! Character)
-            newSCharacter.character = data.value(forKey: "character") as! String
+            newSCharacter.name = data.value(forKey: "name") as! String
             if let num = data.value(forKey: "level") as? NSNumber {
                 newSCharacter.level = num.intValue
             }
@@ -97,6 +102,9 @@ func exportDataFromCoreData()-> [SCharacter]{
             if let num = data.value(forKey: "baseDEF") as? NSNumber {
                 newSCharacter.baseDEF = num.intValue
             }
+            if let num = data.value(forKey: "rating") as? NSNumber {
+                newSCharacter.rating = num.doubleValue
+            }
             SCharacters.append(newSCharacter)
         }
         print("Fetching data finished")
@@ -109,18 +117,18 @@ func exportDataFromCoreData()-> [SCharacter]{
 func addDataToCoreData(_ characterP:SCharacter)->Bool{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-    let entity = NSEntityDescription.entity(forEntityName: "Character", in: context)
-    let newCharacter = NSManagedObject(entity: entity!, insertInto: context)
-    newCharacter.setValue(String(characterP.character), forKey: "character")
-    newCharacter.setValue(Int32(exactly: characterP.level)!, forKey: "level")
-    newCharacter.setValue(Int32(exactly: characterP.rarity)!, forKey: "rarity")
-    newCharacter.setValue(String(characterP.element), forKey: "element")
-    newCharacter.setValue(String(characterP.weapon), forKey: "weapon")
-    newCharacter.setValue(String(characterP.mainRole), forKey: "mainRole")
-    newCharacter.setValue(String(characterP.ascension), forKey: "ascension")
-    newCharacter.setValue(Int32(exactly: characterP.baseHP)!, forKey: "baseHP")
-    newCharacter.setValue(Int32(exactly: characterP.baseATK)!, forKey: "baseATK")
-    newCharacter.setValue(Int32(exactly: characterP.baseDEF)!, forKey: "baseDEF")
+    characterP.NSCharacter = Character(context: context)
+    characterP.NSCharacter.name = characterP.name
+    characterP.NSCharacter.level = Int32("\(characterP.level)")!
+    characterP.NSCharacter.rarity  = Int32("\(characterP.rarity)")!
+    characterP.NSCharacter.element = characterP.element
+    characterP.NSCharacter.weapon  = characterP.weapon
+    characterP.NSCharacter.mainRole = characterP.mainRole
+    characterP.NSCharacter.ascension = characterP.ascension
+    characterP.NSCharacter.baseHP  = Int32("\(characterP.baseHP)")!
+    characterP.NSCharacter.baseATK = Int32("\(characterP.baseATK)")!
+    characterP.NSCharacter.baseDEF = Int32("\(characterP.baseDEF)")!
+    characterP.NSCharacter.rating = characterP.rating
     do {
         try context.save()
         print("Adding data finished")
@@ -149,10 +157,9 @@ func deleteDataFromCoreData(_ deleteObj: SCharacter)->Bool{
 func changeDataFromCoreData(_ changeObj: SCharacter, newValue:Any, forKey:String)->Bool{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-    
     switch(forKey){
     case "character":
-        changeObj.NSCharacter.character = newValue as! String
+        changeObj.NSCharacter.name = newValue as! String
     case "level":
         changeObj.NSCharacter.level = Int32("\(newValue)")!
     case "rarity":
@@ -171,10 +178,11 @@ func changeDataFromCoreData(_ changeObj: SCharacter, newValue:Any, forKey:String
         changeObj.NSCharacter.baseATK = Int32("\(newValue)")!
     case "baseDEF":
         changeObj.NSCharacter.baseDEF = Int32("\(newValue)")!
+    case "rating":
+        changeObj.NSCharacter.rating = Double("\(newValue)")!
     default:
         return false
     }
-    
     do {
         try context.save()
         print("Changing data finished")
