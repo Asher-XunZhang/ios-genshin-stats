@@ -7,78 +7,80 @@
 
 import UIKit
 
-enum CharacterRarity{
-    case Four
-    case Fire
-    case Special
-    
-    static func get(_ r: Int) -> CharacterRarity{
-        switch r {
-            case 4:
-                return .Four
-            case 5:
-                return .Fire
-            case 6:
-                return .Special
-            default:
-                return .Four
+struct CharacterItem {
+    var name : String {
+        didSet {
+            data.forEach{ raw in
+                raw.name = self.name
+            }
         }
     }
     
-    func value()-> Int {
-        switch self {
-            case .Four:
-                return 4
-            case .Fire:
-                return 5
-            case .Special:
-                return 6
+    var rarity : CharacterRarity {
+        didSet {
+            data.forEach{ raw in
+                raw.rarity = self.rarity.value()
+            }
         }
     }
-}
-
-class Charcter {
-    var name : String
-    var rarity : CharacterRarity
-    var rating : Float = 0.0
     
-    init(name: String, rarity: Int) {
-        self.name = name
-        self.rarity = CharacterRarity.get(rarity)
+    var rating: Double = 0 {
+        didSet {
+            data.forEach{ raw in
+                raw.rating = self.rating
+            }
+        }
+    }
+    var role : String {
+        didSet {
+            data.forEach{ raw in
+                raw.mainRole = self.role
+            }
+        }
     }
     
-    convenience init(random : Bool) {
-        if random {
-            let name = ["Amber", "Barbara", "Bennett", "Fischl"]
-            let r = [CharacterRarity.Fire , CharacterRarity.Four, CharacterRarity.Special]
-            self.init(name: name.randomElement()!, rarity: r.randomElement()!.value())
-            print(self)
-        } else {
-            self.init(name: "Template Character", rarity: 5)
-        }
+    var data : [SCharacter] = []
+    
+    init(_ initdata: SCharacter) {
+        name = initdata.name
+        rarity = CharacterRarity.get(initdata.rarity)
+        role = initdata.mainRole
     }
 }
 
 class CharacterContainer {
-    var characters = [Charcter]()
+    var characters : [String: CharacterItem] = [:]
+    var indexRef : [Int : String] = [:]
     
     init() {
-        for _ in 1...40{
-            add()
+        Genshin_Stater.exportDataFromCoreData().forEach{ char in
+            if self.characters.contains(where: {$0.key == char.name}){
+                self.characters[char.name]?.data.append(char)
+            } else {
+                self.characters[char.name] = CharacterItem(char)
+                self.indexRef[characters.count - 1] = char.name
+            }
         }
-    }
-    
-    @discardableResult func add() -> Charcter {
-        let newCharacter = Charcter(random: true)
-        self.characters.append(newCharacter)
-        return newCharacter
     }
 }
 
+class MainViewController : UIViewController {
+    var tableView : CharacterViewController!
+    @IBAction func toggleEdit(){
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CharacterViewController,
+           segue.identifier == "CharacterTableSegue" {
+            self.tableView = vc
+        }
+    }
+}
+
+
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
-    var supposedHeight: CGFloat!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,18 +93,18 @@ class CharacterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterGeneral", for: indexPath) as! CharacterCell
-        let item = content.characters[indexPath.row]
-        cell.characterName.text = item.name
-        cell.characterRarity.image = UIImage(named: "star_\(item.rarity.value())")
+        let item = content.characters[content.indexRef[indexPath.row]!]
+        cell.characterName.text = item?.name
+        cell.characterRarity.image = UIImage(named: "star_\(item!.rarity.value())")
         cell.characterRarity.clipsToBounds = true
         cell.characterRarity.contentMode = .scaleAspectFit
-        cell.charavterRating.text = String(format: "%01.1f", item.rating)
-        cell.characterImage.image = UIImage(named: item.name)
+        cell.charavterRating.text = String(format: "%01.1f", 0.0)
+        cell.characterImage.image = UIImage(named: item!.name)
         cell.characterImage.clipsToBounds = true
         cell.characterImage.contentMode = .scaleAspectFit
         cell.characterRole.text = "N/A"
         
-        switch item.rarity {
+        switch item!.rarity {
             case .Special:
                 cell.backgroundColor = UIColor(named: "pink")?.withAlphaComponent(0.8)
                 cell.characterName.textColor = .white
@@ -129,6 +131,16 @@ class CharacterViewController: UITableViewController {
         cell.layer.borderWidth = 2
         cell.selectionStyle = .none
         return cell
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        tableView.setEditing(editing, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection
+                            section: Int) -> String? {
+        return "Total \(self.content.indexRef.count) characters in Genshin Impact."
     }
 }
 

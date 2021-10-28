@@ -532,19 +532,19 @@ Shogun,80,5,Electro,Polearm,Sub DPS,Energy Recharge,11388,298,696
 Shogun,80,5,Electro,Polearm,Sub DPS,Energy Recharge,12000,314,734
 Shogun,90,5,Electro,Polearm,Sub DPS,Energy Recharge,12907,337,789
 Aloy,1,5,Cryo,Bow,DPS,Cryo DMG,848,18,53
-Aloy,20,5,Cryo,Bow,DPS,Cryo DMG,2201,47,137
-Aloy,20,5,Cryo,Bow,DPS,Cryo DMG,2928,63,182
-Aloy,40,5,Cryo,Bow,DPS,Cryo DMG,4382,94,272
-Aloy,40,5,Cryo,Bow,DPS,Cryo DMG,4899,105,304
-Aloy,50,5,Cryo,Bow,DPS,Cryo DMG,5636,121,350
-Aloy,50,5,Cryo,Bow,DPS,Cryo DMG,6325,136,393
-Aloy,60,5,Cryo,Bow,DPS,Cryo DMG,7070,152,439
-Aloy,60,5,Cryo,Bow,DPS,Cryo DMG,7587,163,471
-Aloy,70,5,Cryo,Bow,DPS,Cryo DMG,8339,179,517
-Aloy,70,5,Cryo,Bow,DPS,Cryo DMG,8856,190,550
-Aloy,80,5,Cryo,Bow,DPS,Cryo DMG,9616,206,597
-Aloy,80,5,Cryo,Bow,DPS,Cryo DMG,10133,217,629
-Aloy,90,5,Cryo,Bow,DPS,Cryo DMG,10899,234,676
+Aloy,20,6,Cryo,Bow,DPS,Cryo DMG,2201,47,137
+Aloy,20,6,Cryo,Bow,DPS,Cryo DMG,2928,63,182
+Aloy,40,6,Cryo,Bow,DPS,Cryo DMG,4382,94,272
+Aloy,40,6,Cryo,Bow,DPS,Cryo DMG,4899,105,304
+Aloy,50,6,Cryo,Bow,DPS,Cryo DMG,5636,121,350
+Aloy,50,6,Cryo,Bow,DPS,Cryo DMG,6325,136,393
+Aloy,60,6,Cryo,Bow,DPS,Cryo DMG,7070,152,439
+Aloy,60,6,Cryo,Bow,DPS,Cryo DMG,7587,163,471
+Aloy,70,6,Cryo,Bow,DPS,Cryo DMG,8339,179,517
+Aloy,70,6,Cryo,Bow,DPS,Cryo DMG,8856,190,550
+Aloy,80,6,Cryo,Bow,DPS,Cryo DMG,9616,206,597
+Aloy,80,6,Cryo,Bow,DPS,Cryo DMG,10133,217,629
+Aloy,90,6,Cryo,Bow,DPS,Cryo DMG,10899,234,676
 Sara,1,4,Electro,Bow,Support,ATK,802,16,53
 Sara,20,4,Electro,Bow,Support,ATK,2061,42,135
 Sara,20,4,Electro,Bow,Support,ATK,2661,54,175

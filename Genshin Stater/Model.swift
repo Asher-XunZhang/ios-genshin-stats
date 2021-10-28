@@ -1,12 +1,35 @@
-//
-//  ViewController.swift
-//  Genshin Stater
-//
-//  Created by KAMIKU on 10/26/21.
-//
-
 import UIKit
 import CoreData
+
+enum CharacterRarity{
+    case Four
+    case Fire
+    case Special
+
+    static func get(_ r: Int) -> CharacterRarity{
+        switch r {
+        case 4:
+            return .Four
+        case 5:
+            return .Fire
+        case 6:
+            return .Special
+        default:
+            return .Four
+        }
+    }
+
+    func value()-> Int {
+        switch self {
+        case .Four:
+            return 4
+        case .Fire:
+            return 5
+        case .Special:
+            return 6
+        }
+    }
+}
 
 class SCharacter: CustomStringConvertible{
     var NSCharacter: Character!
@@ -21,7 +44,7 @@ class SCharacter: CustomStringConvertible{
     var baseATK = 0
     var baseDEF = 0
     var rating: Double = 0.0
-    
+
     public var description: String{
         return String("[name:\(name)\tlevel:\(level)\trarity:\(rarity)\telement:\(element)\tweapon:\(weapon)\tmainRole:\(mainRole)\tascension:\(ascension)\tbaseHP:\(baseHP)\tbaseATK:\(baseATK)\tbaseDEF:\(baseDEF)\trating:\(rating)]")
     }

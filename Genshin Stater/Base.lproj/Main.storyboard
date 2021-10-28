@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tu4-qK-YEV">
             <objects>
-                <viewController id="khZ-Wo-U3H" sceneMemberID="viewController">
+                <viewController id="khZ-Wo-U3H" customClass="MainViewController" customModule="Genshin_Stater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5aH-ab-nPp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Edit" buttonSize="large">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleEdit" destination="khZ-Wo-U3H" eventType="touchDown" id="lD7-o4-kSE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -52,9 +55,9 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJG-w1-Ss2">
-                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="742"/>
                                 <connections>
-                                    <segue destination="HBA-it-pBi" kind="embed" id="h1g-HG-zdt"/>
+                                    <segue destination="HBA-it-pBi" kind="embed" identifier="CharacterTableSegue" id="h1g-HG-zdt"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -66,7 +69,7 @@
                             <constraint firstItem="niv-5c-kVN" firstAttribute="leading" secondItem="nAB-mh-aFn" secondAttribute="leading" id="MjO-YA-gwq"/>
                             <constraint firstItem="eJG-w1-Ss2" firstAttribute="top" secondItem="niv-5c-kVN" secondAttribute="bottom" id="XMy-W5-xPZ"/>
                             <constraint firstItem="nAB-mh-aFn" firstAttribute="trailing" secondItem="niv-5c-kVN" secondAttribute="trailing" id="cXK-zY-kLE"/>
-                            <constraint firstAttribute="bottom" secondItem="eJG-w1-Ss2" secondAttribute="bottom" id="dDn-0I-vDc"/>
+                            <constraint firstAttribute="bottom" secondItem="eJG-w1-Ss2" secondAttribute="bottom" constant="50" id="dDn-0I-vDc"/>
                             <constraint firstItem="niv-5c-kVN" firstAttribute="top" secondItem="nAB-mh-aFn" secondAttribute="top" id="wcd-Hf-LLt"/>
                         </constraints>
                     </view>
@@ -80,7 +83,7 @@
             <objects>
                 <tableViewController id="HBA-it-pBi" customClass="CharacterViewController" customModule="Genshin_Stater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ihf-Af-SmI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="792"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="742"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -170,7 +173,7 @@
             <objects>
                 <viewController id="atB-Yj-Kdr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pFY-cq-NAh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NIh-jX-cYF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
