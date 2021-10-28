@@ -10,11 +10,22 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        importDataToCoreData("Genshin_Impact_All_Character_Stats")
+        
+        // DONE: test codes:
+//        var test = SCharacter()
+//        test.level = 200
+//        addDataToCoreData(test)
+//        var characters = exportDataFromCoreData()
+//        print(characters[characters.count-1].level)
+//        print(changeDataFromCoreData(characters[characters.count-1], newValue: 100, forKey: "level"))
+//        print(deleteDataFromCoreData(characters[characters.count-1]))
+//        characters = exportDataFromCoreData()
+//        print(characters[characters.count-1].level)
+        
+        
         return true
     }
 

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B240E842729FF2A00DC6978 /* Genshin_Impact_All_Character_Stats.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5B240E832729FF2A00DC6978 /* Genshin_Impact_All_Character_Stats.csv */; };
 		B65D8551272901CD00A0FB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D8550272901CD00A0FB50 /* AppDelegate.swift */; };
 		B65D8553272901CD00A0FB50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D8552272901CD00A0FB50 /* SceneDelegate.swift */; };
-		B65D8555272901CD00A0FB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D8554272901CD00A0FB50 /* ViewController.swift */; };
+		B65D8555272901CD00A0FB50 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D8554272901CD00A0FB50 /* Model.swift */; };
 		B65D8558272901CD00A0FB50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65D8556272901CD00A0FB50 /* Main.storyboard */; };
 		B65D855B272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */; };
 		B65D855D272901CF00A0FB50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65D855C272901CF00A0FB50 /* Assets.xcassets */; };
@@ -19,11 +20,12 @@
 
 /* Begin PBXFileReference section */
 		103F764880D9FE9D097B11A1 /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Genshin Stater.debug.xcconfig"; path = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
+		5B240E832729FF2A00DC6978 /* Genshin_Impact_All_Character_Stats.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Genshin_Impact_All_Character_Stats.csv; sourceTree = "<group>"; };
 		5E091F17858013F575C09AE8 /* Pods_Genshin_Stater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Genshin_Stater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65D854D272901CD00A0FB50 /* Genshin Stater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Genshin Stater.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65D8550272901CD00A0FB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B65D8552272901CD00A0FB50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B65D8554272901CD00A0FB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B65D8554272901CD00A0FB50 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B65D8557272901CD00A0FB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B65D855A272901CD00A0FB50 /* Genshin_Stater.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Genshin_Stater.xcdatamodel; sourceTree = "<group>"; };
 		B65D855C272901CF00A0FB50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +52,6 @@
 				103F764880D9FE9D097B11A1 /* Pods-Genshin Stater.debug.xcconfig */,
 				B6D8A605830E9FECD04F74BB /* Pods-Genshin Stater.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,9 +84,10 @@
 		B65D854F272901CD00A0FB50 /* Genshin Stater */ = {
 			isa = PBXGroup;
 			children = (
+				5B240E832729FF2A00DC6978 /* Genshin_Impact_All_Character_Stats.csv */,
 				B65D8550272901CD00A0FB50 /* AppDelegate.swift */,
 				B65D8552272901CD00A0FB50 /* SceneDelegate.swift */,
-				B65D8554272901CD00A0FB50 /* ViewController.swift */,
+				B65D8554272901CD00A0FB50 /* Model.swift */,
 				B65D8556272901CD00A0FB50 /* Main.storyboard */,
 				B65D855C272901CF00A0FB50 /* Assets.xcassets */,
 				B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */,
@@ -106,6 +108,7 @@
 				B65D8549272901CD00A0FB50 /* Sources */,
 				B65D854A272901CD00A0FB50 /* Frameworks */,
 				B65D854B272901CD00A0FB50 /* Resources */,
+				84D0B54B565BE9DC9B3425E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B240E842729FF2A00DC6978 /* Genshin_Impact_All_Character_Stats.csv in Resources */,
 				B65D8560272901CF00A0FB50 /* LaunchScreen.storyboard in Resources */,
 				B65D855D272901CF00A0FB50 /* Assets.xcassets in Resources */,
 				B65D8558272901CD00A0FB50 /* Main.storyboard in Resources */,
@@ -163,6 +167,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		84D0B54B565BE9DC9B3425E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FF4E2B0A839B1C5B657387D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,7 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B65D8555272901CD00A0FB50 /* ViewController.swift in Sources */,
+				B65D8555272901CD00A0FB50 /* Model.swift in Sources */,
 				B65D855B272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld in Sources */,
 				B65D8551272901CD00A0FB50 /* AppDelegate.swift in Sources */,
 				B65D8553272901CD00A0FB50 /* SceneDelegate.swift in Sources */,
