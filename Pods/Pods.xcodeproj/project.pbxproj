@@ -7,41 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AD2D923F133732490FA00EF228FC80C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		C0D3DBF02100239C45263D21DE0F538A /* Pods-Genshin Stater-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */; };
-		DE15EAE3162317A1BEB4B7746E9DA958 /* Pods-Genshin Stater-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		169B1AB13A279B9768D4D2D0F81613D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		27B80FA714EE9EE13790C88F14C8DDC3 /* SwiftCSV-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F395B92D2B1E5E7B6A441DB5B1F939A /* SwiftCSV-dummy.m */; };
+		4694F1BD3F749395B5CA36BE7E9ACEFC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1A17313467692513DF3C7C0488069 /* Parser.swift */; };
+		59F183DB52B3BFD1F09E237D8F2242D2 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D16ACDE2AE4B3E0207DFE4596ECCF28 /* CSV.swift */; };
+		7D19CD03509D354CB4255B39F0E02ACD /* NamedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18AA0E13FC4664F24D4A7DF51D275B /* NamedView.swift */; };
+		8414D178FFFA354AC6EF9CBA505B5E22 /* Pods-Genshin Stater-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */; };
+		9A9A0DE4CB1E40063A55061F16022A3A /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026EDA9B2C54C6EEE0FA5B5DBF16B79 /* Description.swift */; };
+		9C2681F6D60B373B50EA89C9644A0278 /* SwiftCSV-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54DE705C92D7D2D35F65FB4767C55DA7 /* SwiftCSV-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B34F815952834CB78BD04CA0A4431C24 /* ParsingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A12861A7AD26E770421EDCDF7CB70C /* ParsingState.swift */; };
+		B47D312EB0BDC3A82F0D90EBA0BBDE9D /* String+Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D33DD3908FA544F294024AB4150AD13 /* String+Lines.swift */; };
+		B5824860BB3FCEE7A7C3AF73E63B958F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C1EAB19F121B46303A242730BBE87907 /* EnumeratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24267885B60F44D4DD36723C982754C1 /* EnumeratedView.swift */; };
+		C7E851CD4C26013983BC2CAFE04D275B /* Pods-Genshin Stater-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		217C1C7DAA5113664CB76287EEB046D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7465E4C13FFC9CE6D359E31F65D6825;
+			remoteInfo = SwiftCSV;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
-		4BCA5B33DDE65119414D8944A052720E /* Pods-Genshin Stater-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Genshin Stater-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1AC6233D9BBF6AAF53FAAA76A4D06E98 /* SwiftCSV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftCSV.debug.xcconfig; sourceTree = "<group>"; };
+		2026EDA9B2C54C6EEE0FA5B5DBF16B79 /* Description.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Description.swift; path = SwiftCSV/Description.swift; sourceTree = "<group>"; };
+		23ECEF553D17237979EB229192CBF868 /* SwiftCSV-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftCSV-Info.plist"; sourceTree = "<group>"; };
+		24267885B60F44D4DD36723C982754C1 /* EnumeratedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumeratedView.swift; path = SwiftCSV/EnumeratedView.swift; sourceTree = "<group>"; };
+		24FFB183F026935545290C55237C3FF3 /* SwiftCSV-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCSV-prefix.pch"; sourceTree = "<group>"; };
+		2D16ACDE2AE4B3E0207DFE4596ECCF28 /* CSV.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = SwiftCSV/CSV.swift; sourceTree = "<group>"; };
+		2F395B92D2B1E5E7B6A441DB5B1F939A /* SwiftCSV-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftCSV-dummy.m"; sourceTree = "<group>"; };
+		35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
+		45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
+		4D33DD3908FA544F294024AB4150AD13 /* String+Lines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Lines.swift"; path = "SwiftCSV/String+Lines.swift"; sourceTree = "<group>"; };
+		4EC1A17313467692513DF3C7C0488069 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SwiftCSV/Parser.swift; sourceTree = "<group>"; };
+		54DE705C92D7D2D35F65FB4767C55DA7 /* SwiftCSV-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCSV-umbrella.h"; sourceTree = "<group>"; };
+		5A6CBEAC7212DCE694AC28667C36D2D1 /* SwiftCSV */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftCSV; path = SwiftCSV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FAAD24F5B8A5DF48C8548B3DE11321E /* Pods-Genshin Stater-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Genshin Stater-frameworks.sh"; sourceTree = "<group>"; };
+		6F994A1383AADC22A4783DECFAE1E1BA /* Pods-Genshin Stater-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-Info.plist"; sourceTree = "<group>"; };
+		709EC0482228BD39C3A0D472FB9035DF /* SwiftCSV.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftCSV.modulemap; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Genshin Stater"; path = Pods_Genshin_Stater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F1F9237686F8FC579D7DC25D816AE93 /* Pods-Genshin Stater-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-acknowledgements.plist"; sourceTree = "<group>"; };
-		85AFE966CF42E9EBE53157840D2A60F3 /* Pods-Genshin Stater-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-Info.plist"; sourceTree = "<group>"; };
+		9185176DA0C34B55024BFA83EDB5D165 /* Pods-Genshin Stater-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Genshin Stater-acknowledgements.markdown"; sourceTree = "<group>"; };
+		952726EA05F9ACFF11CBA352A41941B7 /* Pods-Genshin Stater.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Genshin Stater.modulemap"; sourceTree = "<group>"; };
+		96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Genshin Stater-dummy.m"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
-		C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Genshin Stater-umbrella.h"; sourceTree = "<group>"; };
-		D05D2B04F22DA41C0A6E5756CF17F367 /* Pods-Genshin Stater.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Genshin Stater.modulemap"; sourceTree = "<group>"; };
-		FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Genshin Stater-dummy.m"; sourceTree = "<group>"; };
+		B3ED9B68EAE7DC2173ADAF1DB609B7EA /* Pods-Genshin Stater-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-acknowledgements.plist"; sourceTree = "<group>"; };
+		C6A12861A7AD26E770421EDCDF7CB70C /* ParsingState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsingState.swift; path = SwiftCSV/ParsingState.swift; sourceTree = "<group>"; };
+		CD18AA0E13FC4664F24D4A7DF51D275B /* NamedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NamedView.swift; path = SwiftCSV/NamedView.swift; sourceTree = "<group>"; };
+		D9F1FE174D4DCA81C375E5E7BC60B487 /* SwiftCSV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftCSV.release.xcconfig; sourceTree = "<group>"; };
+		E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Genshin Stater-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2BC131A33527EEF55D2821BF857C4DC0 /* Frameworks */ = {
+		2DDDE61510279A6D0B77F3598668889B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD2D923F133732490FA00EF228FC80C /* Foundation.framework in Frameworks */,
+				B5824860BB3FCEE7A7C3AF73E63B958F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555C54B44AE77B0F0D91EBBF29956D87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				169B1AB13A279B9768D4D2D0F81613D8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		47DD711F635EAC1276F66204418DED50 /* Targets Support Files */ = {
+		0A3D164F168DCE8490382F0C953781A2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7AA1C7775F0D623F230AB9C7F5AFCE0A /* Pods-Genshin Stater */,
+				709EC0482228BD39C3A0D472FB9035DF /* SwiftCSV.modulemap */,
+				2F395B92D2B1E5E7B6A441DB5B1F939A /* SwiftCSV-dummy.m */,
+				23ECEF553D17237979EB229192CBF868 /* SwiftCSV-Info.plist */,
+				24FFB183F026935545290C55237C3FF3 /* SwiftCSV-prefix.pch */,
+				54DE705C92D7D2D35F65FB4767C55DA7 /* SwiftCSV-umbrella.h */,
+				1AC6233D9BBF6AAF53FAAA76A4D06E98 /* SwiftCSV.debug.xcconfig */,
+				D9F1FE174D4DCA81C375E5E7BC60B487 /* SwiftCSV.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftCSV";
+			sourceTree = "<group>";
+		};
+		3A716B642FC6D5E2CCF978A8B5F8777D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */,
+				5A6CBEAC7212DCE694AC28667C36D2D1 /* SwiftCSV */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5088B96E4BAC67933FEE5072BA6E00D4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2B211C80C04240ABDF5808B89001B19 /* Pods-Genshin Stater */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -54,28 +122,45 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7AA1C7775F0D623F230AB9C7F5AFCE0A /* Pods-Genshin Stater */ = {
+		7CB4D4DE785B19188C1DB656AF8A000B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D05D2B04F22DA41C0A6E5756CF17F367 /* Pods-Genshin Stater.modulemap */,
-				4BCA5B33DDE65119414D8944A052720E /* Pods-Genshin Stater-acknowledgements.markdown */,
-				7F1F9237686F8FC579D7DC25D816AE93 /* Pods-Genshin Stater-acknowledgements.plist */,
-				FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */,
-				85AFE966CF42E9EBE53157840D2A60F3 /* Pods-Genshin Stater-Info.plist */,
-				C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */,
-				3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */,
-				BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */,
+				CE91C188822E0641020E38AD9DE0338C /* SwiftCSV */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C2B211C80C04240ABDF5808B89001B19 /* Pods-Genshin Stater */ = {
+			isa = PBXGroup;
+			children = (
+				952726EA05F9ACFF11CBA352A41941B7 /* Pods-Genshin Stater.modulemap */,
+				9185176DA0C34B55024BFA83EDB5D165 /* Pods-Genshin Stater-acknowledgements.markdown */,
+				B3ED9B68EAE7DC2173ADAF1DB609B7EA /* Pods-Genshin Stater-acknowledgements.plist */,
+				96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */,
+				5FAAD24F5B8A5DF48C8548B3DE11321E /* Pods-Genshin Stater-frameworks.sh */,
+				6F994A1383AADC22A4783DECFAE1E1BA /* Pods-Genshin Stater-Info.plist */,
+				E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */,
+				45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */,
+				35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */,
 			);
 			name = "Pods-Genshin Stater";
 			path = "Target Support Files/Pods-Genshin Stater";
 			sourceTree = "<group>";
 		};
-		B1C0700C174EC6AFE4A45063F35664BD /* Products */ = {
+		CE91C188822E0641020E38AD9DE0338C /* SwiftCSV */ = {
 			isa = PBXGroup;
 			children = (
-				73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */,
+				2D16ACDE2AE4B3E0207DFE4596ECCF28 /* CSV.swift */,
+				2026EDA9B2C54C6EEE0FA5B5DBF16B79 /* Description.swift */,
+				24267885B60F44D4DD36723C982754C1 /* EnumeratedView.swift */,
+				CD18AA0E13FC4664F24D4A7DF51D275B /* NamedView.swift */,
+				4EC1A17313467692513DF3C7C0488069 /* Parser.swift */,
+				C6A12861A7AD26E770421EDCDF7CB70C /* ParsingState.swift */,
+				4D33DD3908FA544F294024AB4150AD13 /* String+Lines.swift */,
+				0A3D164F168DCE8490382F0C953781A2 /* Support Files */,
 			);
-			name = Products;
+			name = SwiftCSV;
+			path = SwiftCSV;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -83,8 +168,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				B1C0700C174EC6AFE4A45063F35664BD /* Products */,
-				47DD711F635EAC1276F66204418DED50 /* Targets Support Files */,
+				7CB4D4DE785B19188C1DB656AF8A000B /* Pods */,
+				3A716B642FC6D5E2CCF978A8B5F8777D /* Products */,
+				5088B96E4BAC67933FEE5072BA6E00D4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,11 +185,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		300B9146EEDACA4CE099F6D9F88A99B8 /* Headers */ = {
+		2E41FF3509C4BDF6F01929FD505F5466 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE15EAE3162317A1BEB4B7746E9DA958 /* Pods-Genshin Stater-umbrella.h in Headers */,
+				C7E851CD4C26013983BC2CAFE04D275B /* Pods-Genshin Stater-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D1BB8E63D09F39F8773AC4669438D18 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C2681F6D60B373B50EA89C9644A0278 /* SwiftCSV-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,20 +206,39 @@
 /* Begin PBXNativeTarget section */
 		7DECBAED43E01A57ECBB0D0992B9AE2F /* Pods-Genshin Stater */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 403D9F7D687F54CBA078A41F70207D83 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */;
+			buildConfigurationList = 38B7271DC02A90CD66CC73E075D7F717 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */;
 			buildPhases = (
-				300B9146EEDACA4CE099F6D9F88A99B8 /* Headers */,
-				70F90CC19867C990D81B607268F78090 /* Sources */,
-				2BC131A33527EEF55D2821BF857C4DC0 /* Frameworks */,
-				8D6242E00BF559D165A4AB78BC0C1266 /* Resources */,
+				2E41FF3509C4BDF6F01929FD505F5466 /* Headers */,
+				4AA5B4DB054E17AF92C58F30EB19C8DD /* Sources */,
+				555C54B44AE77B0F0D91EBBF29956D87 /* Frameworks */,
+				CE0E01C626A52DA6D7ED6E7D0417A35F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				865B640EFBCD17A47BB2C2E20B9A36F0 /* PBXTargetDependency */,
+			);
+			name = "Pods-Genshin Stater";
+			productName = Pods_Genshin_Stater;
+			productReference = 73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */;
+			productType = "com.apple.product-type.framework";
+		};
+		B7465E4C13FFC9CE6D359E31F65D6825 /* SwiftCSV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE7D03708D8A77865AA1056486F97FBD /* Build configuration list for PBXNativeTarget "SwiftCSV" */;
+			buildPhases = (
+				6D1BB8E63D09F39F8773AC4669438D18 /* Headers */,
+				0852CD5FA53927F0C5F74F72CAC7C0A5 /* Sources */,
+				2DDDE61510279A6D0B77F3598668889B /* Frameworks */,
+				3F9FA5611F946683FCC1099C18F3FBD8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Genshin Stater";
-			productName = Pods_Genshin_Stater;
-			productReference = 73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */;
+			name = SwiftCSV;
+			productName = SwiftCSV;
+			productReference = 5A6CBEAC7212DCE694AC28667C36D2D1 /* SwiftCSV */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -146,17 +259,25 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = B1C0700C174EC6AFE4A45063F35664BD /* Products */;
+			productRefGroup = 3A716B642FC6D5E2CCF978A8B5F8777D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7DECBAED43E01A57ECBB0D0992B9AE2F /* Pods-Genshin Stater */,
+				B7465E4C13FFC9CE6D359E31F65D6825 /* SwiftCSV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8D6242E00BF559D165A4AB78BC0C1266 /* Resources */ = {
+		3F9FA5611F946683FCC1099C18F3FBD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE0E01C626A52DA6D7ED6E7D0417A35F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,20 +287,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		70F90CC19867C990D81B607268F78090 /* Sources */ = {
+		0852CD5FA53927F0C5F74F72CAC7C0A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0D3DBF02100239C45263D21DE0F538A /* Pods-Genshin Stater-dummy.m in Sources */,
+				59F183DB52B3BFD1F09E237D8F2242D2 /* CSV.swift in Sources */,
+				9A9A0DE4CB1E40063A55061F16022A3A /* Description.swift in Sources */,
+				C1EAB19F121B46303A242730BBE87907 /* EnumeratedView.swift in Sources */,
+				7D19CD03509D354CB4255B39F0E02ACD /* NamedView.swift in Sources */,
+				4694F1BD3F749395B5CA36BE7E9ACEFC /* Parser.swift in Sources */,
+				B34F815952834CB78BD04CA0A4431C24 /* ParsingState.swift in Sources */,
+				B47D312EB0BDC3A82F0D90EBA0BBDE9D /* String+Lines.swift in Sources */,
+				27B80FA714EE9EE13790C88F14C8DDC3 /* SwiftCSV-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA5B4DB054E17AF92C58F30EB19C8DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8414D178FFFA354AC6EF9CBA505B5E22 /* Pods-Genshin Stater-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		865B640EFBCD17A47BB2C2E20B9A36F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftCSV;
+			target = B7465E4C13FFC9CE6D359E31F65D6825 /* SwiftCSV */;
+			targetProxy = 217C1C7DAA5113664CB76287EEB046D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		1EAE5F54F73ECFA191B7669E6ABDFEBD /* Debug */ = {
+		720FCB8CC8BFD2CBE8BF5F3710009D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */;
+			baseConfigurationReference = 45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -214,12 +359,10 @@
 			};
 			name = Debug;
 		};
-		6B5D494B8B9312DD19CDB24D024DE687 /* Release */ = {
+		8011C97745422D43C46D5CF01CC44AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */;
+			baseConfigurationReference = 1AC6233D9BBF6AAF53FAAA76A4D06E98 /* SwiftCSV.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -228,29 +371,27 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftCSV/SwiftCSV-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftCSV/SwiftCSV-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SwiftCSV/SwiftCSV.modulemap";
+				PRODUCT_MODULE_NAME = SwiftCSV;
+				PRODUCT_NAME = SwiftCSV;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -318,6 +459,41 @@
 			};
 			name = Debug;
 		};
+		920B340A4FA5175372E54DAE01447755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9F1FE174D4DCA81C375E5E7BC60B487 /* SwiftCSV.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftCSV/SwiftCSV-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftCSV/SwiftCSV-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftCSV/SwiftCSV.modulemap";
+				PRODUCT_MODULE_NAME = SwiftCSV;
+				PRODUCT_NAME = SwiftCSV;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,14 +556,52 @@
 			};
 			name = Release;
 		};
+		E7A0CC1D5C8A6DD184AA2DECE70E0054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		403D9F7D687F54CBA078A41F70207D83 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */ = {
+		38B7271DC02A90CD66CC73E075D7F717 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1EAE5F54F73ECFA191B7669E6ABDFEBD /* Debug */,
-				6B5D494B8B9312DD19CDB24D024DE687 /* Release */,
+				720FCB8CC8BFD2CBE8BF5F3710009D6D /* Debug */,
+				E7A0CC1D5C8A6DD184AA2DECE70E0054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -397,6 +611,15 @@
 			buildConfigurations = (
 				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
 				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE7D03708D8A77865AA1056486F97FBD /* Build configuration list for PBXNativeTarget "SwiftCSV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8011C97745422D43C46D5CF01CC44AFA /* Debug */,
+				920B340A4FA5175372E54DAE01447755 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

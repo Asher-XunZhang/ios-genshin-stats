@@ -1,0 +1,187 @@
+//
+//  ViewController.swift
+//  Genshin Stater
+//
+//  Created by KAMIKU on 10/26/21.
+//
+
+import UIKit
+import CoreData
+
+class SCharacter{
+    var NSCharacter: Character!
+    var character = ""
+    var level = 0
+    var rarity = 0
+    var element = ""
+    var weapon = ""
+    var mainRole = ""
+    var ascension = ""
+    var baseHP = 0
+    var baseATK = 0
+    var baseDEF = 0
+}
+
+
+func importDataToCoreData(_ csvName: String){
+    let filepath = Bundle.main.path(forResource: csvName, ofType: "csv")
+    if let content = try? String(contentsOfFile:filepath!, encoding: String.Encoding.utf8){
+        var lines:[String] = content.components(separatedBy: NSCharacterSet.newlines) as [String]
+        lines.removeFirst()
+        lines = lines.filter({$0 != ""})
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+            print("Reset Core Data...")
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+            } catch {
+                print ("There is an error in deleting records")
+            }
+        
+        print("Saving Data..")
+        for line in lines{
+            let values = line.split(separator: ",")
+            let newCharacter  = Character(context: context)
+            newCharacter.setValue(String(values[0]), forKey: "character")
+            newCharacter.setValue(Int32(values[1])!, forKey: "level")
+            newCharacter.setValue(Int32(values[2])!, forKey: "rarity")
+            newCharacter.setValue(String(values[3]), forKey: "element")
+            newCharacter.setValue(String(values[4]), forKey: "weapon")
+            newCharacter.setValue(String(values[5]), forKey: "mainRole")
+            newCharacter.setValue(String(values[6]), forKey: "ascension")
+            newCharacter.setValue(Int32(values[7])!, forKey: "baseHP")
+            newCharacter.setValue(Int32(values[8])!, forKey: "baseATK")
+            newCharacter.setValue(Int32(values[9])!, forKey: "baseDEF")
+            do {
+                try context.save()
+                print("Storing data finished")
+            } catch {
+                print("Storing data Failed")
+            }
+        }
+    }
+}
+
+func exportDataFromCoreData()-> [SCharacter]{
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+    var SCharacters:[SCharacter] = []
+    print("Fetching Data..")
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
+    request.returnsObjectsAsFaults = false
+    do {
+        let result = try context.fetch(request)
+        for data in result as! [NSManagedObject] {
+            var newSCharacter = SCharacter()
+            newSCharacter.NSCharacter = (data as! Character)
+            newSCharacter.character = data.value(forKey: "character") as! String
+            if let num = data.value(forKey: "level") as? NSNumber {
+                newSCharacter.level = num.intValue
+            }
+            if let num = data.value(forKey: "rarity") as? NSNumber {
+                newSCharacter.rarity = num.intValue
+            }
+            newSCharacter.element   = data.value(forKey: "element") as! String
+            newSCharacter.weapon    = data.value(forKey: "weapon") as! String
+            newSCharacter.mainRole  = data.value(forKey: "mainRole") as! String
+            newSCharacter.ascension = data.value(forKey: "ascension") as! String
+            if let num = data.value(forKey: "baseHP") as? NSNumber {
+                newSCharacter.baseHP = num.intValue
+            }
+            if let num = data.value(forKey: "baseATK") as? NSNumber {
+                newSCharacter.baseATK = num.intValue
+            }
+            if let num = data.value(forKey: "baseDEF") as? NSNumber {
+                newSCharacter.baseDEF = num.intValue
+            }
+            SCharacters.append(newSCharacter)
+        }
+        print("Fetching data finished")
+    } catch {
+        print("Fetching data Failed")
+    }
+    return SCharacters
+}
+
+func addDataToCoreData(_ characterP:SCharacter)->Bool{
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+    let entity = NSEntityDescription.entity(forEntityName: "Character", in: context)
+    let newCharacter = NSManagedObject(entity: entity!, insertInto: context)
+    newCharacter.setValue(String(characterP.character), forKey: "character")
+    newCharacter.setValue(Int32(exactly: characterP.level)!, forKey: "level")
+    newCharacter.setValue(Int32(exactly: characterP.rarity)!, forKey: "rarity")
+    newCharacter.setValue(String(characterP.element), forKey: "element")
+    newCharacter.setValue(String(characterP.weapon), forKey: "weapon")
+    newCharacter.setValue(String(characterP.mainRole), forKey: "mainRole")
+    newCharacter.setValue(String(characterP.ascension), forKey: "ascension")
+    newCharacter.setValue(Int32(exactly: characterP.baseHP)!, forKey: "baseHP")
+    newCharacter.setValue(Int32(exactly: characterP.baseATK)!, forKey: "baseATK")
+    newCharacter.setValue(Int32(exactly: characterP.baseDEF)!, forKey: "baseDEF")
+    do {
+        try context.save()
+        print("Adding data finished")
+        return true
+    } catch {
+        print("Adding data Failed")
+        return false
+    }
+}
+
+
+func deleteDataFromCoreData(_ deleteObj: SCharacter)->Bool{
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+    context.delete(deleteObj.NSCharacter)
+    do {
+        try context.save()
+        print("Deleting data finished")
+        return true
+    } catch {
+        print("Deleting data Failed")
+        return false
+    }
+}
+
+func changeDataFromCoreData(_ changeObj: SCharacter, newValue:Any, forKey:String)->Bool{
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+    
+    switch(forKey){
+    case "character":
+        changeObj.NSCharacter.character = newValue as! String
+    case "level":
+        changeObj.NSCharacter.level = Int32("\(newValue)")!
+    case "rarity":
+        changeObj.NSCharacter.rarity = Int32("\(newValue)")!
+    case "element":
+        changeObj.NSCharacter.element = newValue as! String
+    case "weapon":
+        changeObj.NSCharacter.weapon = newValue as! String
+    case "mainRole":
+        changeObj.NSCharacter.mainRole = newValue as! String
+    case "ascension":
+        changeObj.NSCharacter.ascension = newValue as! String
+    case "baseHP":
+        changeObj.NSCharacter.baseHP = Int32("\(newValue)")!
+    case "baseATK":
+        changeObj.NSCharacter.baseATK = Int32("\(newValue)")!
+    case "baseDEF":
+        changeObj.NSCharacter.baseDEF = Int32("\(newValue)")!
+    default:
+        return false
+    }
+    
+    do {
+        try context.save()
+        print("Changing data finished")
+        return true
+    } catch {
+        print("Changing data Failed")
+        return false
+    }
+}
+
