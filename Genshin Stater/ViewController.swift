@@ -31,6 +31,7 @@ struct CharacterItem {
             }
         }
     }
+    
     var role : String {
         didSet {
             data.forEach{ raw in
@@ -49,23 +50,20 @@ struct CharacterItem {
     }
     
     init(){
-        print(1)
         let temp = SCharacter()
         name = temp.name
         rarity = CharacterRarity.get(temp.rarity)
         role = temp.mainRole
-        
         data.append(temp)
 //        if addDataToCoreData(temp) {
 //            data.append(temp)
 //        }
-        print(2)
     }
 }
 
 class CharacterContainer {
     var characters : [String: CharacterItem] = [:]
-    var indexRef : [Int : String] = [:]
+    var indexRef : [Int: String] = [:]
     
     init() {
         Genshin_Stater.exportDataFromCoreData().forEach{ char in
@@ -80,37 +78,26 @@ class CharacterContainer {
     
     func createNewCharacter(){
         var newItem = CharacterItem()
-        let count = self.indexRef.reduce(0, {c, item in
-            print(4)
-            if newItem.name == item.value {
-                return c + 1
-            }else{
-                return c
-            }})
-        
-        if count > 0 {
-            print(5)
-//            changeDataFromCoreData((newItem.data)[0], newValue: "\(newItem.name)\(count)", forKey: "name")
-            newItem.name = "\(newItem.name)\(count)"
-//            newItem.data.last?.name = newItem.name
-//            newItem.data.last?.NSCharacter.name = newItem.name
-            //TODO: update the data
-            print(8)
-            characters["\(newItem.name)\(count)"] = newItem
-        }else{
-            characters["\(newItem.name)"] = newItem
+        self.indexRef.values.forEach { v in
+            if v.contains(newItem.name){
+                if let range = v.range(of: newItem.name) {
+                    let index = v[range.upperBound...]
+                    if let i = Int(index) {
+                        newItem.name.append("\(i)")
+                    }
+                }
+            }
         }
+        characters["\(newItem.name)"] = newItem
+        print(newItem.name)
         
-        print(16)
         // add to the table
         if !indexRef.isEmpty {
             indexRef[characters.count - 1] = indexRef[0]
             indexRef[0] = newItem.name
-            print(indexRef)
         }else{
             self.indexRef[0] = newItem.name
         }
-        print(3)
     }
 }
 
@@ -123,17 +110,11 @@ class MainViewController : UIViewController {
     }
     
     @IBAction func create(){
-        print(6)
         //TODO: create new character
         tableView.content.createNewCharacter()
-        print(90)
-
         self.tableView.tableView.beginUpdates()
-        print(900)
         self.tableView.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
-        print(9000)
         self.tableView.tableView.endUpdates()
-        print(91)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -159,7 +140,6 @@ class CharacterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterGeneral", for: indexPath) as! CharacterCell
-        print(self.content.characters[self.content.indexRef[0]!])
         let item = content.characters[content.indexRef[indexPath.row]!]
         cell.characterName.text = item?.name
         cell.characterRarity.image = UIImage(named: "star_\(item!.rarity.value())")
@@ -173,19 +153,19 @@ class CharacterViewController: UITableViewController {
         
         switch item!.rarity {
             case .Special:
-                cell.backgroundColor = UIColor(named: "pink")?.withAlphaComponent(0.8)
+                cell.backgroundColor = UIColor(named: "pink")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .white
                 cell.characterRole.textColor = .systemGray
                 cell.charavterRating.textColor = .white
                 
             case .Four:
-                cell.backgroundColor = UIColor(named: "purple")?.withAlphaComponent(0.8)
+                cell.backgroundColor = UIColor(named: "purple")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .white
                 cell.characterRole.textColor = .systemGray
                 cell.charavterRating.textColor = .white
                 
             case .Fire:
-                cell.backgroundColor = UIColor(named: "gold")?.withAlphaComponent(0.8)
+                cell.backgroundColor = UIColor(named: "gold")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .darkText
                 cell.charavterRating.textColor = .darkText
                 cell.characterRole.textColor = .darkGray
