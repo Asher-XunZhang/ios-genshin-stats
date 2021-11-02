@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Character" representedClassName="Character" syncable="YES" codeGenerationType="class">
         <attribute name="ascension" optional="YES" attributeType="String"/>
         <attribute name="baseATK" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="baseDEF" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="baseHP" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
         <attribute name="element" optional="YES" attributeType="String"/>
         <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="mainRole" optional="YES" attributeType="String"/>
@@ -14,6 +15,6 @@
         <attribute name="weapon" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-366.38671875" positionY="76.38671875" width="128" height="208"/>
+        <element name="Character" positionX="-366.38671875" positionY="76.38671875" width="128" height="209"/>
     </elements>
 </model>

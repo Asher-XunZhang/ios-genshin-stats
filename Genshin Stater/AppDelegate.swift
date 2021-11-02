@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         importDataToCoreData("Genshin_Impact_All_Character_Stats")
-        
+        exportDataFromCoreData()
         // DONE: test codes:
 //        var test = SCharacter()
 //        test.level = 200
