@@ -77,19 +77,21 @@ class CharacterContainer {
     }
     
     func createNewCharacter(){
+        // TODO: Need fix the string
         var newItem = CharacterItem()
         self.indexRef.values.forEach { v in
             if v.contains(newItem.name){
-                if let range = v.range(of: newItem.name) {
-                    let index = v[range.upperBound...]
-                    if let i = Int(index) {
-                        newItem.name.append("\(i)")
-                    }
+                let index = v.suffix(1)
+                if let i = Int(index) {
+                    newItem.name.append("\(i)")
+                }else{
+                    newItem.name.append("0")
                 }
+            }else{
+                newItem.name.append("0")
             }
         }
         characters["\(newItem.name)"] = newItem
-        print(newItem.name)
         
         // add to the table
         if !indexRef.isEmpty {
@@ -99,21 +101,46 @@ class CharacterContainer {
             self.indexRef[0] = newItem.name
         }
     }
+    
+    func deleteCharacter(index: Int)->Bool{
+        if let key = indexRef[index],
+            let c = characters.index(forKey: key),
+            let i = indexRef.index(forKey: index)
+        {
+            characters.remove(at: c)
+            indexRef.remove(at: i)
+            return true
+        }
+        
+        return false
+    }
 }
 
 class MainViewController : UIViewController {
     var tableView : CharacterViewController!
+    @IBOutlet var editBtn : UIButton!
+    
     @IBAction func toggleEdit(){
-        tableView.setEditing(!tableView.isEditing, animated: true)
+        if tableView.isEditing{
+            editBtn.setTitle("Edit", for: .normal)
+            editBtn.setTitleColor(.black, for: .normal)
+            tableView.setEditing(!tableView.isEditing, animated: true)
+        }else{
+            editBtn.setTitle("Done", for: .normal)
+            editBtn.setTitleColor(UIColor.init(named: "red"), for: .normal)
+            tableView.setEditing(!tableView.isEditing, animated: true)
+        }
         //TODO: add deletate for remove action
-        
     }
     
     @IBAction func create(){
-        //TODO: create new character
-        tableView.content.createNewCharacter()
         self.tableView.tableView.beginUpdates()
+        tableView.content.createNewCharacter()
         self.tableView.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+        if let containerView = tableView.tableView.footerView(forSection: 0) {
+            containerView.textLabel!.text = "Total \(self.tableView.content.indexRef.count) characters in Genshin Impact."
+            containerView.sizeToFit()
+        }
         self.tableView.tableView.endUpdates()
     }
     
@@ -180,6 +207,19 @@ class CharacterViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted")
+            if content.deleteCharacter(index: indexPath.row){
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         tableView.setEditing(editing, animated: true)
@@ -204,11 +244,13 @@ class CharacterCell : UITableViewCell {
         }
         set {
             var frame = newValue
-            frame.origin.x += 15
+            frame.origin.x += 20
             frame.size.height -= 5
-            frame.size.width -= 2 * 15
+            frame.size.width -= 2 * 20
             super.frame = frame
         }
     }
+    
+    
 }
 

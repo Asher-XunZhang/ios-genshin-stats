@@ -76,6 +76,9 @@
                             <constraint firstItem="niv-5c-kVN" firstAttribute="top" secondItem="nAB-mh-aFn" secondAttribute="top" id="wcd-Hf-LLt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editBtn" destination="uSb-OU-gAj" id="vOQ-fs-Qdf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBh-wp-97M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,10 +157,6 @@
                                     <outlet property="characterRarity" destination="YUs-2t-8hv" id="OQS-a1-v2a"/>
                                     <outlet property="characterRole" destination="4lz-kN-3oT" id="pTX-22-FRR"/>
                                     <outlet property="charavterRating" destination="pdO-jK-do8" id="2ka-WE-RGY"/>
-                                    <segue destination="atB-Yj-Kdr" kind="showDetail" id="MhD-b4-m3Z">
-                                        <segue key="commit" inheritsFrom="parent" id="CG0-vk-ugI"/>
-                                        <segue key="preview" inheritsFrom="commit" id="cAM-hd-EQV"/>
-                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -176,7 +175,7 @@
             <objects>
                 <viewController id="atB-Yj-Kdr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pFY-cq-NAh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="NIh-jX-cYF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -188,9 +187,6 @@
             <point key="canvasLocation" x="1723" y="-19"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="MhD-b4-m3Z"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
