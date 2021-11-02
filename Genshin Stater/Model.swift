@@ -261,11 +261,17 @@ class SCharacter: CustomStringConvertible{
         self.baseATK = 0
         self.rating = 0.0
         self.comment = ""
-        do {
-            try CONTEXT.save()
-            print("Create a new Character in Core Data successfully!")
-        } catch {
-            print("Fail to create a new Character in Core Data!")
+    }
+    
+    convenience init(sync:Bool){
+        self.init()
+        if sync {
+            do {
+                try CONTEXT.save()
+                print("Create a new Character in Core Data successfully!")
+            } catch {
+                print("Fail to create a new Character in Core Data!")
+            }
         }
     }
 
@@ -328,7 +334,7 @@ func importDataToCoreData(_ csvName: String){
             newCharacter.setValue("", forKey: "comment")
             do {
                 try CONTEXT.save()
-                print("Storing data finished")
+//                print("Storing data finished")
             } catch {
                 print("Storing data Failed")
             }
@@ -339,7 +345,7 @@ func importDataToCoreData(_ csvName: String){
 func exportDataFromCoreData()-> [[SCharacter]]{
     var charactersByName:[[SCharacter]] = []
     var namesCharacter: [String] = []
-    print("Fetching Data..")
+//    print("Fetching Data..")
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Character")
     request.returnsObjectsAsFaults = false
     do {
@@ -448,7 +454,7 @@ func getCharacterByName(_ nameP: String)->[SCharacter]{
     request.predicate = predicate
     
     var Characters:[Character] = []
-    print("Fetching Data..")
+//    print("Fetching Data..")
     do{
         Characters = try context.fetch(request) as! [Character]
         Characters.forEach{character in
