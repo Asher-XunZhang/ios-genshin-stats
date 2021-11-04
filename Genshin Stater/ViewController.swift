@@ -23,14 +23,15 @@ class CharacterViewController: UITableViewController {
     }
     
     @IBAction func onAddBtnAction(_ sender: UIBarButtonItem) {
-        content.characters.insert(CharacterItem(new: true), at: .zero)
+        let newCharacter = CharacterItem(new: true)
+        content.characters.insert(newCharacter, at: .zero)
         tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
         if let containerView = tableView.footerView(forSection: 0) {
             containerView.textLabel!.text = "Total \(content.characters.count) characters in Genshin Impact."
             containerView.sizeToFit()
         }
         tableView.reloadData()
-        self.performSegue(withIdentifier: "AddNewCharacter", sender: self)
+        self.performSegue(withIdentifier: "AddNewCharacter", sender: newCharacter)
     }
     
     //TODO: Fix the characters' border raduis when delete
@@ -77,11 +78,12 @@ class CharacterViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! CharacterDetailController
+        
         if segue.identifier == "CharacterDetailSegue" {
-            let controller = segue.destination as! CharacterDetailController
             controller.updateData(data: sender as! CharacterItem)
         }else if segue.identifier == "AddNewCharacter" {
-            let from = sender as! CharacterViewController
+            controller.updateData(data: sender as! CharacterItem)
         }
     }
     
