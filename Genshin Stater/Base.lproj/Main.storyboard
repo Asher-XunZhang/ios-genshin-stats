@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,20 +33,11 @@
                                                 <constraint firstAttribute="height" constant="74" id="tPk-Yx-3u6"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zZ-Td-tbC">
-                                            <rect key="frame" x="93" y="2" width="205" height="33"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="Spy-NP-xnm"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUs-2t-8hv">
                                             <rect key="frame" x="6" y="76" width="74" height="30"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-jK-do8" userLabel="rating">
-                                            <rect key="frame" x="242" y="24" width="96" height="62"/>
+                                            <rect key="frame" x="242" y="36" width="96" height="62"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="iJj-67-JHA"/>
                                             </constraints>
@@ -62,19 +54,28 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zZ-Td-tbC">
+                                            <rect key="frame" x="93" y="11" width="205" height="30.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="Spy-NP-xnm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5zZ-Td-tbC" firstAttribute="top" secondItem="Kcg-ni-3Ty" secondAttribute="top" id="BEQ-AS-FO6"/>
+                                        <constraint firstItem="5zZ-Td-tbC" firstAttribute="top" secondItem="Kcg-ni-3Ty" secondAttribute="top" constant="9" id="BEQ-AS-FO6"/>
                                         <constraint firstAttribute="bottom" secondItem="YUs-2t-8hv" secondAttribute="bottom" constant="4" id="E7L-a1-6hV"/>
                                         <constraint firstItem="YUs-2t-8hv" firstAttribute="top" secondItem="Kcg-ni-3Ty" secondAttribute="bottom" id="I5m-G7-eNd"/>
                                         <constraint firstItem="4lz-kN-3oT" firstAttribute="leading" secondItem="5zZ-Td-tbC" secondAttribute="leading" id="Jdx-cT-Fo7"/>
                                         <constraint firstItem="4lz-kN-3oT" firstAttribute="bottom" secondItem="Kcg-ni-3Ty" secondAttribute="bottom" id="PFd-8M-OhX"/>
-                                        <constraint firstItem="pdO-jK-do8" firstAttribute="centerY" secondItem="YV2-36-NND" secondAttribute="centerY" id="Psp-3y-UnF"/>
+                                        <constraint firstItem="pdO-jK-do8" firstAttribute="centerY" secondItem="YV2-36-NND" secondAttribute="centerY" constant="12" id="Psp-3y-UnF"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pdO-jK-do8" secondAttribute="trailing" constant="3.5" id="Tj4-Uv-N9E"/>
                                         <constraint firstItem="pdO-jK-do8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4lz-kN-3oT" secondAttribute="trailing" constant="8" symbolic="YES" id="Xg8-IO-svl"/>
                                         <constraint firstItem="Kcg-ni-3Ty" firstAttribute="leading" secondItem="YUs-2t-8hv" secondAttribute="leading" id="db7-XN-xai"/>
                                         <constraint firstItem="Kcg-ni-3Ty" firstAttribute="leading" secondItem="YV2-36-NND" secondAttribute="leadingMargin" constant="-10" id="dth-uY-45s"/>
-                                        <constraint firstItem="pdO-jK-do8" firstAttribute="top" secondItem="YV2-36-NND" secondAttribute="topMargin" constant="13" id="fxf-RA-KQQ"/>
+                                        <constraint firstItem="pdO-jK-do8" firstAttribute="top" secondItem="YV2-36-NND" secondAttribute="topMargin" constant="25" id="fxf-RA-KQQ"/>
                                         <constraint firstItem="5zZ-Td-tbC" firstAttribute="leading" secondItem="Kcg-ni-3Ty" secondAttribute="trailing" constant="13" id="lIx-DT-6YM"/>
                                         <constraint firstItem="Kcg-ni-3Ty" firstAttribute="top" secondItem="YV2-36-NND" secondAttribute="topMargin" constant="-9" id="m1f-FH-0wJ"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5zZ-Td-tbC" secondAttribute="trailing" constant="20" symbolic="YES" id="olO-2o-3vP"/>
@@ -110,7 +111,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfU-vX-jxF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-584.05797101449275" y="722.54464285714278"/>
+            <point key="canvasLocation" x="-584.79999999999995" y="721.88905547226398"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DL1-1M-eLZ">
@@ -210,7 +211,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWB-Ww-Gw3">
                                         <rect key="frame" x="0.0" y="90" width="375" height="0.0"/>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ja8-sZ-eIA" customClass="CosmosView" customModule="Genshin_Stater">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ja8-sZ-eIA" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="0.0" y="90" width="375" height="60"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -232,8 +233,16 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage">
+                                                <imageReference key="value" image="heart" catalog="system" renderingMode="original"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage">
+                                                <imageReference key="value" image="heart.fill" catalog="system" renderingMode="original"/>
+                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="No Rating"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-qt-jlc">
@@ -315,13 +324,14 @@
             </objects>
             <point key="canvasLocation" x="394.39999999999998" y="721.88905547226398"/>
         </scene>
-        <!--View Controller-->
+        <!--Character Level Controller-->
         <scene sceneID="sAI-tz-7hp">
             <objects>
-                <viewController id="zom-YK-m8k" sceneMemberID="viewController">
+                <viewController id="zom-YK-m8k" customClass="CharacterLevelController" customModule="Genshin_Stater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SoX-5q-i5Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="703"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jLB-Xk-eAe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -334,6 +344,8 @@
         <segue reference="iSP-XL-ilb"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="red">
             <color red="0.79607843137254897" green="0.25098039215686274" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

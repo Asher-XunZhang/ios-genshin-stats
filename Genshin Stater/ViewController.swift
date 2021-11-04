@@ -79,20 +79,20 @@ class CharacterViewController: UITableViewController {
             case .Special:
                 cell.backgroundColor = UIColor(named: "pink")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .white
-                cell.characterRole.textColor = .systemGray
+                cell.characterRole.textColor = .white
                 cell.charavterRating.textColor = .white
                 
             case .Four:
                 cell.backgroundColor = UIColor(named: "purple")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .white
-                cell.characterRole.textColor = .systemGray
+                cell.characterRole.textColor = .white
                 cell.charavterRating.textColor = .white
                 
             case .Five:
                 cell.backgroundColor = UIColor(named: "gold")?.withAlphaComponent(0.9)
                 cell.characterName.textColor = .darkText
                 cell.charavterRating.textColor = .darkText
-                cell.characterRole.textColor = .darkGray
+                cell.characterRole.textColor = .darkText
                 cell.tintColor = .darkGray
         }
         
@@ -167,7 +167,7 @@ class CharacterCell : UITableViewCell {
 }
 
 class CharacterDetailController : UIViewController {
-    
+    var data : CharacterItem!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -189,12 +189,12 @@ class CharacterDetailController : UIViewController {
 class CharacterLevelController : UIViewController {
     let level : DropDown = {
         let level = DropDown()
-        level.dataSource = []
+        level.dataSource = ["Level 10", "Lev"]
         return level
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rootView = UIView(frame: navigationController?.navigationBar.frame ?? .zero)
+//        let rootView = UIView(frame: navigationController?.navigationBar.frame ?? .zero)
     }
 }
