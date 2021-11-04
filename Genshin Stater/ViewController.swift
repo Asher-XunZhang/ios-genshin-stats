@@ -7,35 +7,7 @@
 
 import UIKit
 import DropDown
-
-struct CharacterItem {
-    var name : String
-    var rarity : CharacterRarity
-    var rating: Double = 0
-    var role : String
-    var data : [SCharacter]
-    init(_ initdata: [SCharacter]) {
-        let info = initdata[initdata.startIndex]
-        name = info.name
-        rarity = CharacterRarity.get(info.rarity)
-        role = info.mainRole
-        data = initdata
-    }
-    
-    init(new:Bool){
-        self.init([SCharacter(sync: false)])
-    }
-}
-
-class CharacterContainer {
-    var characters : [CharacterItem] = []
-    
-    init() {
-        Genshin_Stater.exportDataFromCoreData().forEach{ char in
-            characters.append(CharacterItem(char))
-        }
-    }
-}
+import Cosmos
 
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
@@ -107,6 +79,7 @@ class CharacterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CharacterDetailSegue" {
             let controller = segue.destination as! CharacterDetailController
+            controller.updateData(data: sender as! CharacterItem)
         }else if segue.identifier == "AddNewCharacter" {
             let from = sender as! CharacterViewController
         }
@@ -141,7 +114,7 @@ class CharacterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "CharacterDetailSegue", sender: self)
+        self.performSegue(withIdentifier: "CharacterDetailSegue", sender: self.content.characters[indexPath.row])
     }
 }
 
@@ -167,34 +140,54 @@ class CharacterCell : UITableViewCell {
 }
 
 class CharacterDetailController : UIViewController {
+    @IBOutlet weak var charName: UITextField!
+    @IBOutlet weak var charRole: UITextField!
+    @IBOutlet weak var charRating: CosmosView!
+    @IBOutlet weak var charAvatar: UIImageView!
+    @IBOutlet weak var charRarity: UISegmentedControl!
+    
     var data : CharacterItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        charName.text = data.name
+        charRole.text = data.role
+        switch data.rarity {
+            case .Four:
+                charRarity.selectedSegmentIndex = 0
+            case .Five:
+                charRarity.selectedSegmentIndex = 1
+            case .Special:
+                charRarity.selectedSegmentIndex = 2
+        }
+        charRating.rating = data.rating
+        charAvatar.image = UIImage(named: data.name)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CharacterDetailSegue" {
             let controller = segue.destination as! CharacterDetailController
         }else if segue.identifier == "AddNewCharacter" {
-            print("Adding new character...")
             let from = sender as! CharacterViewController
         }
-        
         if segue.identifier == "leveldetial" {
             let controller = segue.destination as! CharacterLevelController
         }
+    }
+    
+    func updateData(data:CharacterItem){
+        self.data = data
     }
 }
 
 class CharacterLevelController : UIViewController {
     let level : DropDown = {
         let level = DropDown()
-        level.dataSource = ["Level 10", "Lev"]
+        level.dataSource = []
         return level
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let rootView = UIView(frame: navigationController?.navigationBar.frame ?? .zero)
     }
 }

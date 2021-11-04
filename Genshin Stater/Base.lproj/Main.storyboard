@@ -257,7 +257,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-og-rhX">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-og-rhX">
                                                 <rect key="frame" x="100" y="0.0" width="275" height="41"/>
                                                 <segments>
                                                     <segment title="★★★★"/>
@@ -319,6 +319,13 @@
                     <navigationItem key="navigationItem" title="Character Editing" id="KA4-n1-gi4">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="II8-Xj-jGY"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="charAvatar" destination="RoA-ea-Ut9" id="Mbu-sV-0GK"/>
+                        <outlet property="charName" destination="awK-NU-w0E" id="Qd5-r6-zwR"/>
+                        <outlet property="charRarity" destination="IgO-og-rhX" id="caI-sV-9Jx"/>
+                        <outlet property="charRating" destination="ja8-sZ-eIA" id="arT-0S-TTU"/>
+                        <outlet property="charRole" destination="rI0-JL-fbg" id="gns-HX-fxt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4U-M9-VwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,6 +347,11 @@
             <point key="canvasLocation" x="1482" y="722"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ja8-sZ-eIA">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="iSP-XL-ilb"/>
     </inferredMetricsTieBreakers>
