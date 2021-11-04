@@ -120,6 +120,7 @@
 				B65D8549272901CD00A0FB50 /* Sources */,
 				B65D854A272901CD00A0FB50 /* Frameworks */,
 				B65D854B272901CD00A0FB50 /* Resources */,
+				9FAE4A5EDE7EF063B56D8DA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +180,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9FAE4A5EDE7EF063B56D8DA1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FF4E2B0A839B1C5B657387D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

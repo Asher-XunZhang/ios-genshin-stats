@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 struct CharacterItem {
     var name : String
@@ -50,14 +51,12 @@ class CharacterViewController: UITableViewController {
     }
     
     @IBAction func onAddBtnAction(_ sender: UIBarButtonItem) {
-//        tableView.beginUpdates()
         content.characters.insert(CharacterItem(new: true), at: .zero)
         tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
         if let containerView = tableView.footerView(forSection: 0) {
             containerView.textLabel!.text = "Total \(content.characters.count) characters in Genshin Impact."
             containerView.sizeToFit()
         }
-//        tableView.endUpdates()
         tableView.reloadData()
         self.performSegue(withIdentifier: "AddNewCharacter", sender: self)
     }
@@ -103,6 +102,14 @@ class CharacterViewController: UITableViewController {
         cell.layer.borderWidth = 2
         cell.selectionStyle = .none
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CharacterDetailSegue" {
+            let controller = segue.destination as! CharacterDetailController
+        }else if segue.identifier == "AddNewCharacter" {
+            let from = sender as! CharacterViewController
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -166,13 +173,28 @@ class CharacterDetailController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("I am here")
         if segue.identifier == "CharacterDetailSegue" {
             let controller = segue.destination as! CharacterDetailController
-            
         }else if segue.identifier == "AddNewCharacter" {
             print("Adding new character...")
             let from = sender as! CharacterViewController
         }
+        
+        if segue.identifier == "leveldetial" {
+            let controller = segue.destination as! CharacterLevelController
+        }
+    }
+}
+
+class CharacterLevelController : UIViewController {
+    let level : DropDown = {
+        let level = DropDown()
+        level.dataSource = []
+        return level
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let rootView = UIView(frame: navigationController?.navigationBar.frame ?? .zero)
     }
 }
