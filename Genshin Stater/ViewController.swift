@@ -9,6 +9,9 @@ import UIKit
 import DropDown
 import Cosmos
 
+let WIDTH:CGFloat = UIScreen.main.bounds.width
+let HEIGHT:CGFloat = UIScreen.main.bounds.height
+
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
     
@@ -141,7 +144,7 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate{
     
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
@@ -159,10 +162,22 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     
     var data : CharacterItem!
     
+    var dataCopy: CharacterItem!
+    
+    var keyboardMarginY:CGFloat = 0
+    var keyboardAnimitionDuration: TimeInterval = 0
+    var viewDistanceFromTopScreen: CGFloat = 0
+    var offsetDistance: CGFloat = 0
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.levelPicker.delegate = self
         self.levelPicker.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame(node:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardAppearAction(node:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDisappearAction(node:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         charName.text = data.name
         
@@ -213,9 +228,9 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         }else if segue.identifier == "AddNewCharacter" {
             let from = sender as! CharacterViewController
         }
-        if segue.identifier == "leveldetial" {
-            let controller = segue.destination as! CharacterLevelController
-        }
+//        if segue.identifier == "leveldetial" {
+//            let controller = segue.destination as! CharacterLevelController
+//        }
     }
     
     func updateData(data:CharacterItem){
@@ -242,21 +257,70 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         charBaseATK.text = String(data.data[row].baseATK)
         charBaseDEF.text = String(data.data[row].baseDEF)
     }
+    
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag+1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            self.view.endEditing(true)
+        }
+        return true
+    }
+    
+    @objc func keyboardWillChangeFrame(node:Notification){
+        keyboardAnimitionDuration = node.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let endFrame = (node.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardMarginY = endFrame.origin.y
+    }
+    
+    @objc func keyboardAppearAction(node:Notification){
+        self.view.subviews.filter{$0 is UITextField && $0.isFirstResponder}.forEach{ focusTextField in
+            viewDistanceFromTopScreen = HEIGHT-self.view.frame.height
+            let textFieldFromTopScreen = focusTextField.frame.maxY + viewDistanceFromTopScreen - offsetDistance
+            let textFieldLowestBoundLimit = keyboardMarginY - focusTextField.frame.height
+            if textFieldFromTopScreen > textFieldLowestBoundLimit {
+                offsetDistance += (textFieldFromTopScreen - textFieldLowestBoundLimit)
+                self.view.frame.origin.y = 0-offsetDistance
+                if keyboardAnimitionDuration <= 0 {keyboardAnimitionDuration = 0.3}
+                UIView.animate(withDuration: keyboardAnimitionDuration) {
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    @objc func keyboardDisappearAction(node:Notification){
+        self.view.frame.origin.y = 0
+        offsetDistance = 0
+        UIView.animate(withDuration: keyboardAnimitionDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        UIView.animate(withDuration: 0.3, animations: {
+        self.view.frame.origin.y = 0
+        })
+    }
+    
 }
 
-class CharacterLevelController : UIViewController {
-    let level = DropDown()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        level.anchorView = view
-        level.dataSource = ["1", "2", "3", "4"]
-        // Action triggered on selection
-        level.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
-        }
-        level.direction = .bottom
-//        level.show()
-        
-    }
-}
+
+//class CharacterLevelController : UIViewController {
+//    let level = DropDown()
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        level.anchorView = view
+//        level.dataSource = ["1", "2", "3", "4"]
+//        // Action triggered on selection
+//        level.selectionAction = { [unowned self] (index: Int, item: String) in
+//          print("Selected item: \(item) at index: \(index)")
+//        }
+//        level.direction = .bottom
+////        level.show()
+//
+//    }
+//}
