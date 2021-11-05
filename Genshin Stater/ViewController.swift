@@ -54,8 +54,8 @@ class CharacterViewController: UITableViewController {
         }else{
             cell.characterImage.image = UIImage(data: Genshin_Stater.loadImage(imgName: item.name)!)
         }
-        
-        
+
+
         cell.characterImage.clipsToBounds = true
         cell.characterImage.contentMode = .scaleAspectFit
         cell.characterRole.text = item.role
@@ -101,7 +101,7 @@ class CharacterViewController: UITableViewController {
         }else{
             alert(title: "Error", msg: "Cannot open the detail page!")
         }
-        
+
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -162,11 +162,15 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
     @IBOutlet weak var charWeapon: UITextField!
+    @IBOutlet weak var charBaseHP: UITextField!
+    @IBOutlet weak var charBaseATK: UITextField!
+    @IBOutlet weak var charBaseDEF: UITextField!
     @IBOutlet weak var charRating: CosmosView!
     @IBOutlet weak var charRatingNum: UILabel!
     @IBOutlet weak var charAvatar: UIImageView!
     @IBOutlet weak var charRarity: UISegmentedControl!
     @IBOutlet weak var levelPicker: UIPickerView!
+    @IBOutlet weak var comments: UITextView!
     var pickerData: [String] = []
     var data : CharacterItem!
     
@@ -180,7 +184,7 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
             alert(title: "Error", msg: "Cannot open the photo library")
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.levelPicker.delegate = self
@@ -189,6 +193,8 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         charName.text = data.name
         charRole.text = data.role
         charWeapon.text = data.data[data.data.startIndex].weapon
+        comments.text = data.data[data.data.startIndex].comment
+
         let avatar = UIImage(named: (data.name == "New Character" ? "default_character" : data.name))
         if let a = avatar, !a.isEmpty() {
             charAvatar.image = avatar
@@ -213,7 +219,7 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
             case .Special:
                 charRarity.selectedSegmentIndex = 2
         }
-        
+
         data.data.forEach{
             char in
             let subStrList = String(char.level).split(separator: ".")
@@ -223,6 +229,10 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
             }
             self.pickerData.append(levelShow)
         }
+        charBaseHP.text = String(data.data[data.data.startIndex].baseHP)
+        charBaseATK.text = String(data.data[data.data.startIndex].baseATK)
+        charBaseDEF.text = String(data.data[data.data.startIndex].baseDEF)
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -247,11 +257,16 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         return pickerData.count
     }
     
-// The data to return fopr the row and component (column) that's being passed in
+    // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
         return pickerData[row]
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        charBaseHP.text = String(data.data[row].baseHP)
+        charBaseATK.text = String(data.data[row].baseATK)
+        charBaseDEF.text = String(data.data[row].baseDEF)
+    }
 }
 
 class CharacterLevelController : UIViewController {
