@@ -9,6 +9,12 @@ import UIKit
 import DropDown
 import Cosmos
 
+extension UIImage {
+    func isEmpty() -> Bool {
+        return cgImage == nil && ciImage == nil
+    }
+}
+
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
     
@@ -42,7 +48,14 @@ class CharacterViewController: UITableViewController {
         cell.characterRarity.clipsToBounds = true
         cell.characterRarity.contentMode = .scaleAspectFit
         cell.charavterRating.text = String(format: "%01.1f", 0.0)
-        cell.characterImage.image = UIImage(named: item.name)
+        let avatar = UIImage(named: (item.name == "New Character" ? "default_character" : item.name))
+        if let a = avatar, !a.isEmpty() {
+            cell.characterImage.image = avatar
+        }else{
+            cell.characterImage.image = UIImage(data: Genshin_Stater.loadImage(imgName: item.name)!)
+        }
+        
+        
         cell.characterImage.clipsToBounds = true
         cell.characterImage.contentMode = .scaleAspectFit
         cell.characterRole.text = item.role
@@ -158,7 +171,6 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     var data : CharacterItem!
     
     @IBAction func loadImageFromLocal(_ sender: AnyObject){
-        print("LALALA")
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -177,7 +189,12 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         charName.text = data.name
         charRole.text = data.role
         charWeapon.text = data.data[data.data.startIndex].weapon
-        charAvatar.image = UIImage(named: data.name)
+        let avatar = UIImage(named: (data.name == "New Character" ? "default_character" : data.name))
+        if let a = avatar, !a.isEmpty() {
+            charAvatar.image = avatar
+        }else{
+            charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: data.name)!)
+        }
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
@@ -210,13 +227,9 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as! UIImage
-        let fileManager = FileManager.default
-        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let filePath = "\(rootPath)/\(self.data.name).jpg"
-        let imageData = pickedImage.jpegData(compressionQuality: 1.0)
-        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+        Genshin_Stater.saveImage(img: pickedImage, name: self.data.name)
         picker.dismiss(animated: true, completion: {
-            self.charAvatar.image = UIImage(data: imageData!)
+            self.charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: self.data.name)!)
         })
     }
     
