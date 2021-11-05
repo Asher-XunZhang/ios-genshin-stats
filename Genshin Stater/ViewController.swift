@@ -144,7 +144,7 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
@@ -155,8 +155,19 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var charRarity: UISegmentedControl!
     @IBOutlet weak var levelPicker: UIPickerView!
     var pickerData: [String] = []
-    
     var data : CharacterItem!
+    
+    @IBAction func loadImageFromLocal(_ sender: AnyObject){
+        print("LALALA")
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(picker, animated: true, completion: {() -> Void in})
+        }else{
+            alert(title: "Error", msg: "Cannot open the photo library")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,7 +178,6 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         charRole.text = data.role
         charWeapon.text = data.data[data.data.startIndex].weapon
         charAvatar.image = UIImage(named: data.name)
-        
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
@@ -196,7 +206,18 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
             }
             self.pickerData.append(levelShow)
         }
-        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as! UIImage
+        let fileManager = FileManager.default
+        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let filePath = "\(rootPath)/\(self.data.name).jpg"
+        let imageData = pickedImage.jpegData(compressionQuality: 1.0)
+        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+        picker.dismiss(animated: true, completion: {
+            self.charAvatar.image = UIImage(data: imageData!)
+        })
     }
     
     func updateData(data:CharacterItem){
