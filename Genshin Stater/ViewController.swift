@@ -141,19 +141,41 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController {
+class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+    
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
+    @IBOutlet weak var charWeapon: UITextField!
     @IBOutlet weak var charRating: CosmosView!
+    @IBOutlet weak var charRatingNum: UILabel!
     @IBOutlet weak var charAvatar: UIImageView!
     @IBOutlet weak var charRarity: UISegmentedControl!
+    @IBOutlet weak var levelPicker: UIPickerView!
+    var pickerData: [String] = []
     
     var data : CharacterItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.levelPicker.delegate = self
+        self.levelPicker.dataSource = self
+        
         charName.text = data.name
+        
         charRole.text = data.role
+        
+        charWeapon.text = data.data[data.data.startIndex].weapon
+        
+        charRating.settings.fillMode = .half
+        charRating.settings.disablePanGestures = true
+        charRating.rating = data.rating
+        charRatingNum.text = String(charRating.rating)
+        charRating.didTouchCosmos = {
+            rating in
+            self.charRatingNum.text = String(rating)
+        }
+        
+        charRarity.isEnabled = true
         switch data.rarity {
             case .Four:
                 charRarity.selectedSegmentIndex = 0
@@ -162,8 +184,19 @@ class CharacterDetailController : UIViewController {
             case .Special:
                 charRarity.selectedSegmentIndex = 2
         }
-        charRating.rating = data.rating
+        
         charAvatar.image = UIImage(named: data.name)
+        
+        data.data.forEach{
+            char in
+            let subStrList = String(char.level).split(separator: ".")
+            var levelShow = String(subStrList[0])
+            if subStrList[1] == "5" {
+                levelShow += "+"
+            }
+            self.pickerData.append(levelShow)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -180,16 +213,37 @@ class CharacterDetailController : UIViewController {
     func updateData(data:CharacterItem){
         self.data = data
     }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+// The data to return fopr the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return pickerData[row]
+    }
+    
 }
 
 class CharacterLevelController : UIViewController {
-    let level : DropDown = {
-        let level = DropDown()
-        level.dataSource = []
-        return level
-    }()
+    let level = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        level.anchorView = view
+        level.dataSource = ["1", "2", "3", "4"]
+        // Action triggered on selection
+        level.selectionAction = { [unowned self] (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)")
+        }
+        level.direction = .bottom
+//        level.show()
+        
     }
 }

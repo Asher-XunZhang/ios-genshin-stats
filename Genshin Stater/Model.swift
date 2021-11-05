@@ -91,15 +91,15 @@ class SCharacter: CustomStringConvertible{
         }
     }
     
-    var level:Int{
+    var level:Float{
         didSet{
-            NSCharacter.level = Int32("\(level)")!
+            NSCharacter.level = level
             do {
                 try CONTEXT.save()
 //                NotificationCenter.default.post(name: .didChangeLevel, object: nil)
                 print("Update level successfully!")
             } catch {
-                NSCharacter.level = Int32("\(oldValue)")!
+                NSCharacter.level = oldValue
                 level = oldValue
 //                NotificationCenter.default.post(name: .failedChangeLevel, object: nil)
                 print("Fail to update level!")
@@ -250,7 +250,7 @@ class SCharacter: CustomStringConvertible{
     init(){
         self.NSCharacter = Character(context: CONTEXT)
         self.name = "New Character"
-        self.level = 1
+        self.level = 1.0
         self.rarity = 4
         self.weapon = "Undefined"
         self.element = "Undefined"
@@ -279,7 +279,7 @@ class SCharacter: CustomStringConvertible{
     init(character: Character) {
         self.NSCharacter = character
         self.name = character.name!
-        self.level = Int("\(character.level)")!
+        self.level = character.level
         self.rarity = Int("\(character.rarity)")!
         self.weapon = character.weapon!
         self.element = character.element!
@@ -316,12 +316,22 @@ func importDataToCoreData(_ csvName: String){
         }
         //TODO: Remove in the future above
         
+        var recordLevels: [Int] = []
         print("Saving Data..")
         for line in lines{
-            let values = line.split(separator: ",")
+            var values = line.split(separator: ",")
             let newCharacter  = Character(context: CONTEXT)
             newCharacter.setValue(String(values[0]), forKey: "name")
-            newCharacter.setValue(Int32(values[1])!, forKey: "level")
+            if Int(values[1]) == 90 {
+                recordLevels = []
+            }else{
+                if recordLevels.contains(Int(values[1])!){
+                    values[1] += ".5"
+                }else{
+                    recordLevels.append(Int(values[1])!)
+                }
+            }
+            newCharacter.setValue(Float(values[1])!, forKey: "level")
             newCharacter.setValue(Int32(values[2])!, forKey: "rarity")
             newCharacter.setValue(String(values[3]), forKey: "element")
             newCharacter.setValue(String(values[4]), forKey: "weapon")
