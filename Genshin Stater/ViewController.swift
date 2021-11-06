@@ -15,6 +15,9 @@ extension UIImage {
     }
 }
 
+let WIDTH:CGFloat = UIScreen.main.bounds.width
+let HEIGHT:CGFloat = UIScreen.main.bounds.height
+
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
     
@@ -157,8 +160,11 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-    
+class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    var saveOffsetForKeyBoard: CGPoint?
+
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
     @IBOutlet weak var charWeapon: UITextField!
@@ -173,7 +179,15 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var comments: UITextView!
     var pickerData: [String] = []
     var data : CharacterItem!
-    
+    var dataCopy: CharacterItem! //The copy of data
+
+    var keyboardMarginY:CGFloat = 0
+    var keyboardAnimitionDuration: TimeInterval = 0
+    var viewDistanceFromTopScreen: CGFloat = 0
+    var offsetDistance: CGFloat = 0
+
+
+
     @IBAction func loadImageFromLocal(_ sender: AnyObject){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
@@ -187,9 +201,21 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.delegate = self
         self.levelPicker.delegate = self
         self.levelPicker.dataSource = self
         
+        scrollView.keyboardDismissMode = .none
+
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.numberOfTouchesRequired = 1
+        scrollView.addGestureRecognizer(recognizer)
+
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+
         charName.text = data.name
         charRole.text = data.role
         charWeapon.text = data.data[data.data.startIndex].weapon
@@ -247,7 +273,10 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         self.data = data
     }
     
-    
+
+
+
+/// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -267,21 +296,76 @@ class CharacterDetailController : UIViewController, UIPickerViewDelegate, UIPick
         charBaseATK.text = String(data.data[row].baseATK)
         charBaseDEF.text = String(data.data[row].baseDEF)
     }
+/// End PickerView
+
+
+
+/// Start keyboard event.
+    @objc func touch(){
+        self.view.endEditing(true)
+    }
+
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    func findViewThatIsFirstResponder(view: UIView) -> UIView? {
+        if view.isFirstResponder {
+            return view
+        }
+
+        for subView in view.subviews {
+            if let hit = findViewThatIsFirstResponder(view: subView) {
+                return hit
+            }
+        }
+
+        return nil
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if let scrollView = self.scrollView{
+
+                var safeArea = self.view.frame
+                safeArea.size.height -= scrollView.contentOffset.y
+                safeArea.size.height -= keyboardSize.height
+                safeArea.size.height -= view.safeAreaInsets.bottom
+
+                let activeField: UIView? = findViewThatIsFirstResponder(view: view)
+
+                if let activeField = activeField{
+                    let activeFrameInView = view.convert(activeField.bounds, from: activeField)
+                    let distance = activeFrameInView.maxY - safeArea.size.height
+                    if distance > 0 {
+                        if saveOffsetForKeyBoard == nil{
+                            saveOffsetForKeyBoard = scrollView.contentOffset
+                        }
+                        scrollView.setContentOffset(CGPoint(x: 0, y: distance+20), animated: true)
+                    }
+                }
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let restoreOffset = saveOffsetForKeyBoard else {
+            return
+        }
+        if let scrollView = self.scrollView {
+            scrollView.setContentOffset(restoreOffset, animated: true)
+            self.saveOffsetForKeyBoard = nil
+        }
+    }
+    /// End keyboard events and actions functions
+
+
 }
 
-class CharacterLevelController : UIViewController {
-    let level = DropDown()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        level.anchorView = view
-        level.dataSource = ["1", "2", "3", "4"]
-        // Action triggered on selection
-        level.selectionAction = { [unowned self] (index: Int, item: String) in
-          print("Selected item: \(item) at index: \(index)")
-        }
-        level.direction = .bottom
-//        level.show()
-        
-    }
-}
+//extension CharacterDetailController:UITextViewDelegate{
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        scrollView.endEditing(true)
+//        return true
+//    }
+//}
