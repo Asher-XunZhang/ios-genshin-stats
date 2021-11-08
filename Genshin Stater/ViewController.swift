@@ -181,10 +181,10 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         
         scrollView.keyboardDismissMode = .none
 
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
-        recognizer.numberOfTapsRequired = 1
-        recognizer.numberOfTouchesRequired = 1
-        scrollView.addGestureRecognizer(recognizer)
+//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
+//        recognizer.numberOfTapsRequired = 1
+//        recognizer.numberOfTouchesRequired = 1
+//        scrollView.addGestureRecognizer(recognizer)
 
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
