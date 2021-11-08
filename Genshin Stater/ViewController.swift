@@ -186,8 +186,6 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
 
-
-
     @IBAction func loadImageFromLocal(_ sender: AnyObject){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
@@ -208,7 +206,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         scrollView.keyboardDismissMode = .none
 
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
-        recognizer.numberOfTapsRequired = 1
+        recognizer.numberOfTapsRequired = 2
         recognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(recognizer)
 

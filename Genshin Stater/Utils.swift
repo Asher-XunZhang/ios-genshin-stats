@@ -32,11 +32,12 @@ func loadImage(imgName: String) -> Data? {
     return nil
 }
 
-func saveImage(img: UIImage, name: String){
+func saveImage(img: UIImage, name: String) -> Data?{
     let fileManager = FileManager.default
     let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
     let filePath = "\(rootPath)/\(name).jpg"
     let imageData = img.jpegData(compressionQuality: 1.0)
     fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+    return imageData ?? nil
 }
 
