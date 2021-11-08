@@ -9,15 +9,11 @@ import UIKit
 import DropDown
 import Cosmos
 
-let WIDTH:CGFloat = UIScreen.main.bounds.width
-let HEIGHT:CGFloat = UIScreen.main.bounds.height
-
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 100
         self.navigationItem.rightBarButtonItem=self.editButtonItem
     }
     
@@ -81,19 +77,23 @@ class CharacterViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! CharacterDetailController
-        
-        if segue.identifier == "CharacterDetailSegue" {
-            controller.updateData(data: sender as! CharacterItem)
-        }else if segue.identifier == "AddNewCharacter" {
-            controller.updateData(data: sender as! CharacterItem)
+        if let controller = segue.destination as? CharacterDetailController {
+            if segue.identifier == "CharacterDetailSegue" {
+                controller.updateData(data: sender as! CharacterItem)
+            }else if segue.identifier == "AddNewCharacter" {
+                controller.updateData(data: sender as! CharacterItem)
+            }else{
+                alert(title: "Error", msg: "Cannot open the currect page!")
+            }
+        }else{
+            alert(title: "Error", msg: "Cannot open the detail page!")
         }
+
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            alertWithConfrim(title: "Delete Confitm", msg: "Do you want to delete?", callback:{
-                action in
+            alertWithConfrim(title: "Delete Confitm", msg: "Do you want to delete?", callback:{ action in
                 if self.content.characters[self.content.characters.index(self.content.characters.startIndex, offsetBy: indexPath.row)].data.reduce(true, {res, char in
                     res && deleteDataFromCoreData(char)
                 }){
@@ -145,7 +145,7 @@ class CharacterCell : UITableViewCell {
 }
 
 class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
-    
+
     @IBOutlet weak var scrollView: UIScrollView!
     var saveOffsetForKeyBoard: CGPoint?
     
@@ -165,14 +165,14 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     
     var data : CharacterItem!
     var dataCopy: CharacterItem! //The copy of data
-    
+
     var keyboardMarginY:CGFloat = 0
     var keyboardAnimitionDuration: TimeInterval = 0
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
-    
-    
-    
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.delegate = self
@@ -180,32 +180,31 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         self.levelPicker.dataSource = self
         
         scrollView.keyboardDismissMode = .none
-        
+
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
         recognizer.numberOfTapsRequired = 1
         recognizer.numberOfTouchesRequired = 1
         scrollView.addGestureRecognizer(recognizer)
-        
-        
+
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        
+
         charName.text = data.name
-        
         charRole.text = data.role
-        
         charWeapon.text = data.data[data.data.startIndex].weapon
+        charAvatar.image = UIImage(named: data.name)
         comments.text = data.data[data.data.startIndex].comment
-        
+
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
-        charRatingNum.text = String(charRating.rating)
         charRating.didTouchCosmos = {
             rating in
             self.charRatingNum.text = String(rating)
         }
         
+        charRatingNum.text = String(charRating.rating)
         charRarity.isEnabled = true
         switch data.rarity {
             case .Four:
@@ -215,9 +214,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
             case .Special:
                 charRarity.selectedSegmentIndex = 2
         }
-        
-        charAvatar.image = UIImage(named: data.name)
-        
+
         data.data.forEach{
             char in
             let subStrList = String(char.level).split(separator: ".")
@@ -230,27 +227,15 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charBaseHP.text = String(data.data[data.data.startIndex].baseHP)
         charBaseATK.text = String(data.data[data.data.startIndex].baseATK)
         charBaseDEF.text = String(data.data[data.data.startIndex].baseDEF)
-        
+
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "CharacterDetailSegue" {
-//            let controller = segue.destination as! CharacterDetailController
-//        }else if segue.identifier == "AddNewCharacter" {
-//            let from = sender as! CharacterViewController
-//        }
-//        if segue.identifier == "leveldetial" {
-//            let controller = segue.destination as! CharacterLevelController
-//        }
-    }
-    
+
     func updateData(data:CharacterItem){
         self.data = data
     }
     
+    
 
-    
-    
 /// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -272,18 +257,18 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charBaseDEF.text = String(data.data[row].baseDEF)
     }
 /// End PickerView
+
     
-    
-    
+
 /// Start keyboard event.
     @objc func touch(){
         self.view.endEditing(true)
     }
-    
+
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+
     func findViewThatIsFirstResponder(view: UIView) -> UIView? {
         if view.isFirstResponder {
             return view
@@ -306,7 +291,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
                 safeArea.size.height -= scrollView.contentOffset.y
                 safeArea.size.height -= keyboardSize.height
                 safeArea.size.height -= view.safeAreaInsets.bottom
-                
+
                 let activeField: UIView? = findViewThatIsFirstResponder(view: view)
 
                 if let activeField = activeField{
@@ -334,7 +319,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     }
     /// End keyboard events and actions functions
 
-    
+
 }
 
 //extension CharacterDetailController:UITextViewDelegate{

@@ -24,6 +24,10 @@ struct CharacterItem {
     init(new:Bool){
         self.init([SCharacter(sync: false)])
     }
+    
+    func save(){
+        
+    }
 }
 
 class CharacterContainer {
