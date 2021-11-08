@@ -137,7 +137,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="osA-3f-M3w">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="osA-3f-M3w" customClass="CharacterDetailScrollView" customModule="Genshin_Stater" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -234,12 +234,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="LfJ-X5-wZe"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHp-U5-qgK">
                                                 <rect key="frame" x="286" y="344" width="75" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="cYd-AD-ZOA"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="base HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-rg-CFV">
                                                 <rect key="frame" x="46" y="305" width="75" height="25"/>
@@ -253,6 +259,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="X9g-5u-f7K"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weapon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utB-kq-Z7L">
                                                 <rect key="frame" x="27" y="120.99999999999989" width="73" height="20.333333333333329"/>
@@ -282,25 +291,28 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RoA-ea-Ut9">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RoA-ea-Ut9">
                                                 <rect key="frame" x="279" y="10" width="90" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="ZMC-c6-fro" appends="YES" id="BB5-qR-AY1"/>
-                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="rI0-JL-fbg">
                                                 <rect key="frame" x="89" y="66" width="176" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="ly2-tK-Vci"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="awK-NU-w0E">
                                                 <rect key="frame" x="89" y="16" width="176" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="O4i-oW-4F5"/>
+                                                </connections>
                                             </textField>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-og-rhX">
                                                 <rect key="frame" x="89" y="171" width="280" height="32"/>
@@ -324,6 +336,9 @@
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="U7m-8m-6kb"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -341,6 +356,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="otH-NT-kKA"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="4v0-IN-f0W"/>
+                                <connections>
+                                    <outlet property="delegate" destination="atB-Yj-Kdr" id="fYV-ZF-0UG"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NIh-jX-cYF"/>
@@ -351,7 +369,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
-                        <outlet property="charAvatar" destination="RoA-ea-Ut9" id="Mbu-sV-0GK"/>
+                        <outlet property="charAvatar" destination="RoA-ea-Ut9" id="ofY-1Y-2KH"/>
                         <outlet property="charBaseATK" destination="GSi-9F-Lsl" id="jNf-3M-17A"/>
                         <outlet property="charBaseDEF" destination="bHp-U5-qgK" id="d2w-nw-O4M"/>
                         <outlet property="charBaseHP" destination="dki-qI-9gV" id="fj2-g5-iNi"/>
@@ -364,14 +382,11 @@
                         <outlet property="comments" destination="Wgh-ES-fII" id="KsZ-QX-E1X"/>
                         <outlet property="levelPicker" destination="PYU-rN-K8w" id="vF1-MF-Kn7"/>
                         <outlet property="scrollView" destination="osA-3f-M3w" id="Py3-Ja-1rg"/>
+                        <outlet property="view" destination="pFY-cq-NAh" id="Y27-A2-KlH"/>
+                        <outlet property="viewInScroll" destination="dtN-df-dyV" id="VpN-mQ-XtJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4U-M9-VwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZMC-c6-fro">
-                    <connections>
-                        <action selector="loadImageFromLocal:" destination="atB-Yj-Kdr" id="crE-JJ-Pb0"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="394.20289855072468" y="721.46739130434787"/>
         </scene>

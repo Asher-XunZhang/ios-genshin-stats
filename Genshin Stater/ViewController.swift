@@ -157,9 +157,17 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class CharacterDetailScrollView : UIScrollView{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.endEditing(true)
+    }
+}
 
-    @IBOutlet weak var scrollView: UIScrollView!
+
+class CharacterDetailController : UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    @IBOutlet weak var scrollView: CharacterDetailScrollView!
+    @IBOutlet weak var viewInScroll: UIView!
     var saveOffsetForKeyBoard: CGPoint?
     
     @IBOutlet weak var charName: UITextField!
@@ -184,7 +192,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
 
-    @IBAction func loadImageFromLocal(_ sender: AnyObject){
+    @objc func loadImageFromLocal(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -197,17 +205,13 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.delegate = self
+        
+//        scrollView.delaysContentTouches = false
+        
         self.levelPicker.delegate = self
         self.levelPicker.dataSource = self
         
         scrollView.keyboardDismissMode = .none
-
-//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
-//        recognizer.numberOfTapsRequired = 1
-//        recognizer.numberOfTouchesRequired = 1
-//        scrollView.addGestureRecognizer(recognizer)
-
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
@@ -218,11 +222,19 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         comments.text = data.data[data.data.startIndex].comment
 
         let avatar = UIImage(named: (data.name == "New Character" ? "default_character" : data.name))
+        
         if let a = avatar, !a.isEmpty() {
             charAvatar.image = avatar
         }else{
             charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: data.name)!)
         }
+        
+        let avatarRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.loadImageFromLocal))
+        avatarRecognizer.numberOfTapsRequired = 1
+        avatarRecognizer.numberOfTouchesRequired = 1
+        charAvatar.addGestureRecognizer(avatarRecognizer)
+        
+        
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
@@ -269,8 +281,6 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         self.data = data
     }
     
-
-    
     
 /// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -297,13 +307,13 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     
     
 /// Start keyboard event.
-    @objc func touch(){
-        self.view.endEditing(true)
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
     
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
     
     func findViewThatIsFirstResponder(view: UIView) -> UIView? {
         if view.isFirstResponder {
@@ -354,14 +364,5 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         }
     }
     /// End keyboard events and actions functions
-
-    
 }
 
-//extension CharacterDetailController:UITextViewDelegate{
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        scrollView.endEditing(true)
-//        return true
-//    }
-//}
