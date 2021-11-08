@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+let SAVE_DONE_NOTIFICATION_NAME = "SaveDoneNotification"
+
 extension UIViewController {
     func alert(title:String, msg: String){
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)

@@ -102,7 +102,14 @@
                                 <action selector="onAddBtnAction:" destination="gjl-p4-1fT" id="BUJ-ml-NOq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="CsG-iw-MRh"/>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="edit" id="CsG-iw-MRh"/>
+                            <barButtonItem style="plain" systemItem="refresh" id="un5-rE-9QD">
+                                <connections>
+                                    <action selector="reloadAction:" destination="gjl-p4-1fT" id="HMN-33-v2h"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="atB-Yj-Kdr" kind="show" identifier="CharacterDetailSegue" id="iSP-XL-ilb"/>
@@ -234,12 +241,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="levelChangedAction:" destination="atB-Yj-Kdr" eventType="editingChanged" id="uyy-ey-qXT"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHp-U5-qgK">
                                                 <rect key="frame" x="286" y="344" width="75" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="levelChangedAction:" destination="atB-Yj-Kdr" eventType="editingChanged" id="aOs-Xk-gER"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="base HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-rg-CFV">
                                                 <rect key="frame" x="46" y="305" width="75" height="25"/>
@@ -253,6 +266,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="levelChangedAction:" destination="atB-Yj-Kdr" eventType="editingChanged" id="Ti4-fe-XHV"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weapon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utB-kq-Z7L">
                                                 <rect key="frame" x="27" y="120.99999999999989" width="73" height="20.333333333333329"/>
@@ -347,7 +363,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Character Editing" id="KA4-n1-gi4">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="II8-Xj-jGY"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="II8-Xj-jGY">
+                            <connections>
+                                <action selector="saveAction:" destination="atB-Yj-Kdr" id="wGn-vl-rmv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>

@@ -15,15 +15,31 @@ extension UIImage {
     }
 }
 
-let WIDTH:CGFloat = UIScreen.main.bounds.width
-let HEIGHT:CGFloat = UIScreen.main.bounds.height
-
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @IBAction func reloadAction(_ sender: UIBarButtonItem) {
+        alertWithConfrim(title: "Warning", msg: "Do you want to load the template data? (All the data will be erased!)", callback: {res in
+            importDataToCoreData("Genshin_Impact_All_Character_Stats")
+            self.content.reload()
+            self.tableView.reloadData()
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem=self.editButtonItem
+        NotificationCenter.default.addObserver(self, selector: #selector(afterSaveAction), name: NSNotification.Name(rawValue: SAVE_DONE_NOTIFICATION_NAME), object: nil)
+    }
+    
+    @objc func afterSaveAction(){
+        content.reload()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,14 +66,13 @@ class CharacterViewController: UITableViewController {
         cell.characterRarity.image = UIImage(named: "star_\(item.rarity.value())")
         cell.characterRarity.clipsToBounds = true
         cell.characterRarity.contentMode = .scaleAspectFit
-        cell.charavterRating.text = String(format: "%01.1f", 0.0)
-        let avatar = UIImage(named: (item.name == "New Character" ? "default_character" : item.name))
+        cell.charavterRating.text = String(format: "%01.1f", item.rating)
+        let avatar = UIImage(data: item.avatar)
         if let a = avatar, !a.isEmpty() {
             cell.characterImage.image = avatar
         }else{
             cell.characterImage.image = UIImage(data: Genshin_Stater.loadImage(imgName: item.name)!)
         }
-
 
         cell.characterImage.clipsToBounds = true
         cell.characterImage.contentMode = .scaleAspectFit
@@ -164,6 +179,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
 
     @IBOutlet weak var scrollView: UIScrollView!
     var saveOffsetForKeyBoard: CGPoint?
+    var levelChangeList: [Int: LevelModifyRecord] = [:]
 
     @IBOutlet weak var charName: UITextField!
     @IBOutlet weak var charRole: UITextField!
@@ -176,16 +192,16 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     @IBOutlet weak var charAvatar: UIImageView!
     @IBOutlet weak var charRarity: UISegmentedControl!
     @IBOutlet weak var levelPicker: UIPickerView!
+    
     @IBOutlet weak var comments: UITextView!
     var pickerData: [String] = []
     var data : CharacterItem!
-    var dataCopy: CharacterItem! //The copy of data
-
+    var current : Int?
     var keyboardMarginY:CGFloat = 0
     var keyboardAnimitionDuration: TimeInterval = 0
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
-
+    
     @IBAction func loadImageFromLocal(_ sender: AnyObject){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
@@ -196,7 +212,49 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
             alert(title: "Error", msg: "Cannot open the photo library")
         }
     }
-
+    
+    @IBAction func saveAction(_ sender: UIBarButtonItem) {
+        //get the changed value to
+        if data.name != charName.text {
+            data.name = charName.text!
+        }
+        data.rarity = CharacterRarity.get({
+            switch charRarity.selectedSegmentIndex{
+                case 0:
+                    return 4
+                case 1:
+                    return 5
+                case 2:
+                    return 6
+                default:
+                    return 4
+            }
+        }())
+        data.role = charRole.text!
+        data.rating = charRating.rating
+        
+        levelChangeList.forEach{ k, v in
+            data.data[k].baseATK = v.BaseATK
+            data.data[k].baseDEF = v.BaseDEF
+            data.data[k].baseHP = v.BaseHP
+        }
+        
+        //save the value to database
+        let result = data.save()
+        if !result.success {
+            alert(title: "Error", msg: result.msg ?? "Unknown error")
+        }else{
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: SAVE_DONE_NOTIFICATION_NAME), object: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func levelChangedAction(_ sender: UITextField) {
+        if let curr = current{
+            levelChangeList[curr] = LevelModifyRecord(hp: Int(charBaseHP.text!) ?? data.data[curr].baseHP, atk: Int(charBaseATK.text!) ?? data.data[curr].baseATK, def: Int(charBaseDEF.text!) ?? data.data[curr].baseDEF)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.delegate = self
@@ -219,7 +277,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charWeapon.text = data.data[data.data.startIndex].weapon
         comments.text = data.data[data.data.startIndex].comment
 
-        let avatar = UIImage(named: (data.name == "New Character" ? "default_character" : data.name))
+        let avatar = UIImage(data: data.avatar)
         if let a = avatar, !a.isEmpty() {
             charAvatar.image = avatar
         }else{
@@ -271,9 +329,6 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         self.data = data
     }
     
-
-
-
 /// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -290,13 +345,18 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        charBaseHP.text = String(data.data[row].baseHP)
-        charBaseATK.text = String(data.data[row].baseATK)
-        charBaseDEF.text = String(data.data[row].baseDEF)
+        current = row
+        if levelChangeList.keys.contains(row){
+            charBaseHP.text = String(levelChangeList[row]?.BaseHP ?? data.data[row].baseHP)
+            charBaseATK.text = String(levelChangeList[row]?.BaseATK ?? data.data[row].baseATK)
+            charBaseDEF.text = String(levelChangeList[row]?.BaseDEF ?? data.data[row].baseDEF)
+        }else{
+            charBaseHP.text = String(data.data[row].baseHP)
+            charBaseATK.text = String(data.data[row].baseATK)
+            charBaseDEF.text = String(data.data[row].baseDEF)
+        }
     }
 /// End PickerView
-
-
 
 /// Start keyboard event.
     @objc func touch(){
@@ -356,8 +416,6 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         }
     }
     /// End keyboard events and actions functions
-
-
 }
 
 //extension CharacterDetailController:UITextViewDelegate{

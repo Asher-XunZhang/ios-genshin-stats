@@ -95,19 +95,19 @@
 			isa = PBXGroup;
 			children = (
 				B6DC1384272A7D6C00A32B8B /* Genshin_Impact_All_Character_Stats.csv */,
-				B6DC137E272A7A1D00A32B8B /* Model.swift */,
-				B65D8550272901CD00A0FB50 /* AppDelegate.swift */,
-				B65D8552272901CD00A0FB50 /* SceneDelegate.swift */,
-				B65D8554272901CD00A0FB50 /* ViewController.swift */,
-				B65D8556272901CD00A0FB50 /* Main.storyboard */,
-				B65D855C272901CF00A0FB50 /* Assets.xcassets */,
-				B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */,
-				B65D8561272901CF00A0FB50 /* Info.plist */,
-				B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */,
-				B6DC137C272A5C0400A32B8B /* NiceColor.xcassets */,
 				B6DC1382272A7D3D00A32B8B /* Documentation.docc */,
-				B6D765CD2730D56A00813A54 /* Utils.swift */,
+				B65D8561272901CF00A0FB50 /* Info.plist */,
+				B65D8550272901CD00A0FB50 /* AppDelegate.swift */,
+				B6DC137E272A7A1D00A32B8B /* Model.swift */,
 				B65CA03A273431B100DC0EFC /* ModelController.swift */,
+				B65D8552272901CD00A0FB50 /* SceneDelegate.swift */,
+				B6D765CD2730D56A00813A54 /* Utils.swift */,
+				B65D8554272901CD00A0FB50 /* ViewController.swift */,
+				B65D855C272901CF00A0FB50 /* Assets.xcassets */,
+				B6DC137C272A5C0400A32B8B /* NiceColor.xcassets */,
+				B65D8559272901CD00A0FB50 /* Genshin_Stater.xcdatamodeld */,
+				B65D855E272901CF00A0FB50 /* LaunchScreen.storyboard */,
+				B65D8556272901CD00A0FB50 /* Main.storyboard */,
 			);
 			path = "Genshin Stater";
 			sourceTree = "<group>";
