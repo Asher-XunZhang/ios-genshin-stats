@@ -244,7 +244,7 @@ func exportDataFromCoreData()-> [[SCharacter]]{
     return charactersByName
 }
 
-func deleteDataFromCoreData(_ deleteObj: SCharacter)->Bool{
+@discardableResult func deleteDataFromCoreData(_ deleteObj: SCharacter)->Bool{
     CONTEXT.delete(deleteObj.NSCharacter)
     do {
         try CONTEXT.save()

@@ -32,6 +32,10 @@ struct CharacterItem {
     var rating: Double = 0
     var role : String
     var data : [SCharacter]
+    var weapon : String
+    var comment : String
+    var element : String
+    var ascension : String
     var isNameChanged = false
     init(_ initdata: [SCharacter]) {
         let info = initdata[initdata.startIndex]
@@ -41,10 +45,29 @@ struct CharacterItem {
         data = initdata
         avatar = info.avatar
         rating = info.rating
+        weapon = info.weapon
+        comment = info.comment
+        element = info.element
+        ascension = info.ascension
     }
     
     init(new:Bool){
-        self.init([SCharacter(sync: false)])
+        let levels: [Float] = [1,
+                               20, 20.5,
+                               40, 40.5,
+                               50, 50.5,
+                               60, 60.5,
+                               70, 70.5,
+                               80, 80.5,
+                               90]
+        var SCharacters: [SCharacter] = []
+        for level in levels {
+            var scharacter = SCharacter(sync: true)
+            scharacter.level = level
+            scharacter.save()
+            SCharacters.append(scharacter)
+        }
+        self.init(SCharacters)
     }
     
     func save() -> (success: Bool, msg: String?){
@@ -58,6 +81,11 @@ struct CharacterItem {
                     curr.rating = self.rating
                     curr.mainRole = self.role
                     curr.rarity = self.rarity.value()
+                    curr.avatar = self.avatar
+                    curr.weapon = self.weapon
+                    curr.comment = self.comment
+                    curr.element = self.element
+                    curr.ascension = self.ascension
                     if !curr.save() {
                         res[0] = false
                         res[1] = "Error when save \(curr.name) at level \(curr.level)"
