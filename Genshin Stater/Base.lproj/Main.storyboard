@@ -448,11 +448,6 @@
             <point key="canvasLocation" x="394.20289855072468" y="721.46739130434787"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="ja8-sZ-eIA">
-            <size key="intrinsicContentSize" width="170" height="30"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="iSP-XL-ilb"/>
     </inferredMetricsTieBreakers>
