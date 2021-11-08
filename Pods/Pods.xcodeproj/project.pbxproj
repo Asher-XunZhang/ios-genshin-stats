@@ -7,41 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AD2D923F133732490FA00EF228FC80C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		C0D3DBF02100239C45263D21DE0F538A /* Pods-Genshin Stater-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */; };
-		DE15EAE3162317A1BEB4B7746E9DA958 /* Pods-Genshin Stater-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08B996926B8FC3AAF9E3530168FA56F6 /* Pods-Genshin Stater-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C6156B7023F7F69398B4119A0AA492B /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4629B04C806A5D4B9178283ABE6AA /* CosmosText.swift */; };
+		209D9DD6A82F26B8032A43B060B5D164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2FCFA7D464D486EC1E486FFF2C21B4ED /* Cosmos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FAADBFC4AF014D9371F968355F9D4F /* Cosmos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34D86F4481D9328BF45B637B906B3122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3E410558A06008A95E19C2FE1D5E014E /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD894444D395C74E95BFA0779695FC4 /* CosmosRating.swift */; };
+		449B7D4D4BD118C480786A347A377054 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9233829EC5583DE45053D1D183B1B3F /* CosmosTouchTarget.swift */; };
+		4D8675E7F1C6254904557B7FB84E1C51 /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF32F8480AFCAED46E895FE8EAA188BE /* CosmosSettings.swift */; };
+		515E22E4255B6073C1897BDDB091A2B8 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515AA05015BFDEB632161FC8021DA83 /* DropDown+Appearance.swift */; };
+		5E87677262463376144E8B5F6916FCCB /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FBD2B65942F6A0C1B1D241BBD4F35 /* StarFillMode.swift */; };
+		61773DD4962BFA6D7E38DD8A9D998A8A /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D438BA18BF3A3E09415317A02D2AC /* CosmosDefaultSettings.swift */; };
+		67318BB3E280E0D8FB9161E5557B71E3 /* Cosmos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C416EE5E3A3779A734C6FA66336F23D0 /* Cosmos-dummy.m */; };
+		68E1653C561E14BBEAC9CF4873570D58 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D320F48888A811622A6C762C99EDD0E0 /* DropDownCell.xib */; };
+		74012B832FAF67F8D62A2B27CDAFE8B5 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6C0B225E6F4F873ABB6595728413E /* DPDConstants.swift */; };
+		772B7FA4384C442360975E95D12383BA /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11DB961A1115F1E06B74054B6DF9AC0 /* CosmosAccessibility.swift */; };
+		7AA4F48458A149B12BCF7E8EB147E25C /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4DF3BD5AD9F2DC52779ADC1E83EB28 /* CosmosTouch.swift */; };
+		7E298ECE9B23835D17446526E27D2D67 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EDBEDBE4D1FED41536CA7A4E31D05 /* StarLayer.swift */; };
+		8322D938B4C21C24E70FBA1B95797AC9 /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE050900DCD1909080DB24096F9B11 /* CosmosSize.swift */; };
+		84459C4824533C9C4FD12AFC941F3CE1 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F87565FFC6FC3929A8870FCA4302 /* DropDown.swift */; };
+		89A72A55273CE358DC4E7600F785C37B /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14529C381FB0F1770C55761578453A07 /* DPDKeyboardListener.swift */; };
+		907338727C09F65DB75AA7AB9E10C3B4 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71CF35E9A842C4AEE16ED1E2FEE66 /* DropDown-dummy.m */; };
+		9755F83E9DE9BA2CC07496C16AF80B42 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2768D00AF09AF943B6CBA0DAE3B63E /* RightToLeft.swift */; };
+		99DB653A1F70EAEC3490B69E4AC9011F /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4B63DB4F3B44826889813ECAC78C55 /* CosmosLayerHelper.swift */; };
+		ABFB9BF862F602531FE8131A350542B0 /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC17861970CA412E5A95C6BF0E84894 /* CosmosLayers.swift */; };
+		B73E510E851686F8184E26986A470458 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A6771F0F19939DF1ED7CC1DEF1D0F /* DPDUIView+Extension.swift */; };
+		BAD96F150454AB138E25165C63D3436A /* Pods-Genshin Stater-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */; };
+		BDC10974A8641F01C5665C61EA37A153 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5461E13ADDDA8F4CFB22A1DC69DF9963 /* DropDownCell.swift */; };
+		CB4D7FEF62D7943C6E236467F3C516C1 /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771559C14447926FCA6A2FB6D7FACBB3 /* CosmosLocalizedRating.swift */; };
+		E0A8C46EEE733B55971B1CC5ED65C9AA /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC6635FEB9068922CAEE49DE9EE8D01 /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6456CFB8870B6765098392B1D81FBB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		EC1899EF909D17F47C5C0C2064BD2533 /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374EF378DCA7FD23325DA725BD60360C /* CosmosView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E1BA6481CBBE20B8210B3CB791001FDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9F9401E9C74C0C393164FD8D86D0068;
+			remoteInfo = DropDown;
+		};
+		EA25F1277868B0E49A59115BB6909E21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00F31BD5217A20974B5E9AAC6256D98E;
+			remoteInfo = Cosmos;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
-		4BCA5B33DDE65119414D8944A052720E /* Pods-Genshin Stater-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Genshin Stater-acknowledgements.markdown"; sourceTree = "<group>"; };
+		05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cosmos; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F4629B04C806A5D4B9178283ABE6AA /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
+		14529C381FB0F1770C55761578453A07 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
+		1CA71CF35E9A842C4AEE16ED1E2FEE66 /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
+		32D9E84419B1B6373687D0D2B05F9C1B /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DropDown.modulemap; sourceTree = "<group>"; };
+		35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
+		374EF378DCA7FD23325DA725BD60360C /* CosmosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosView.swift; path = Cosmos/CosmosView.swift; sourceTree = "<group>"; };
+		43F663D69D56F89E0F3E3597D48927B3 /* Cosmos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cosmos-Info.plist"; sourceTree = "<group>"; };
+		45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.debug.xcconfig"; sourceTree = "<group>"; };
+		46F6C0B225E6F4F873ABB6595728413E /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
+		48DE050900DCD1909080DB24096F9B11 /* CosmosSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSize.swift; path = Cosmos/CosmosSize.swift; sourceTree = "<group>"; };
+		502EDBEDBE4D1FED41536CA7A4E31D05 /* StarLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarLayer.swift; path = Cosmos/StarLayer.swift; sourceTree = "<group>"; };
+		50FAADBFC4AF014D9371F968355F9D4F /* Cosmos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-umbrella.h"; sourceTree = "<group>"; };
+		523A6771F0F19939DF1ED7CC1DEF1D0F /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		5461E13ADDDA8F4CFB22A1DC69DF9963 /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
+		5B4DF3BD5AD9F2DC52779ADC1E83EB28 /* CosmosTouch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouch.swift; path = Cosmos/CosmosTouch.swift; sourceTree = "<group>"; };
+		5E3309A2090B46A190C28E1362B46DF4 /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
+		5FAAD24F5B8A5DF48C8548B3DE11321E /* Pods-Genshin Stater-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Genshin Stater-frameworks.sh"; sourceTree = "<group>"; };
+		67EE9DB18A3BD4D8A3824F968EF02104 /* DropDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.release.xcconfig; sourceTree = "<group>"; };
+		6B2768D00AF09AF943B6CBA0DAE3B63E /* RightToLeft.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RightToLeft.swift; path = Cosmos/Helpers/RightToLeft.swift; sourceTree = "<group>"; };
+		6F994A1383AADC22A4783DECFAE1E1BA /* Pods-Genshin Stater-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-Info.plist"; sourceTree = "<group>"; };
+		6FD894444D395C74E95BFA0779695FC4 /* CosmosRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosRating.swift; path = Cosmos/CosmosRating.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Genshin Stater"; path = Pods_Genshin_Stater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F1F9237686F8FC579D7DC25D816AE93 /* Pods-Genshin Stater-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-acknowledgements.plist"; sourceTree = "<group>"; };
-		85AFE966CF42E9EBE53157840D2A60F3 /* Pods-Genshin Stater-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-Info.plist"; sourceTree = "<group>"; };
+		771559C14447926FCA6A2FB6D7FACBB3 /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLocalizedRating.swift; path = Cosmos/CosmosLocalizedRating.swift; sourceTree = "<group>"; };
+		8763DADC4274CD4BA044AE087B8F8533 /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cosmos.modulemap; sourceTree = "<group>"; };
+		88BE83809D186CEC4D720AAF43F7B1D7 /* Cosmos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-prefix.pch"; sourceTree = "<group>"; };
+		9185176DA0C34B55024BFA83EDB5D165 /* Pods-Genshin Stater-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Genshin Stater-acknowledgements.markdown"; sourceTree = "<group>"; };
+		952726EA05F9ACFF11CBA352A41941B7 /* Pods-Genshin Stater.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Genshin Stater.modulemap"; sourceTree = "<group>"; };
+		962D438BA18BF3A3E09415317A02D2AC /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosDefaultSettings.swift; path = Cosmos/CosmosDefaultSettings.swift; sourceTree = "<group>"; };
+		96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Genshin Stater-dummy.m"; sourceTree = "<group>"; };
+		9B6725B782188F18CB76A740433F14E4 /* DropDown */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DropDown; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Genshin Stater.release.xcconfig"; sourceTree = "<group>"; };
-		C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Genshin Stater-umbrella.h"; sourceTree = "<group>"; };
-		D05D2B04F22DA41C0A6E5756CF17F367 /* Pods-Genshin Stater.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Genshin Stater.modulemap"; sourceTree = "<group>"; };
-		FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Genshin Stater-dummy.m"; sourceTree = "<group>"; };
+		A925C4836759467CB4509C5BACCB0F4E /* DropDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.debug.xcconfig; sourceTree = "<group>"; };
+		B3ED9B68EAE7DC2173ADAF1DB609B7EA /* Pods-Genshin Stater-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Genshin Stater-acknowledgements.plist"; sourceTree = "<group>"; };
+		B515AA05015BFDEB632161FC8021DA83 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		B55FBD2B65942F6A0C1B1D241BBD4F35 /* StarFillMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarFillMode.swift; path = Cosmos/StarFillMode.swift; sourceTree = "<group>"; };
+		BBC17861970CA412E5A95C6BF0E84894 /* CosmosLayers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayers.swift; path = Cosmos/CosmosLayers.swift; sourceTree = "<group>"; };
+		BDD01A38AE2ABDB93F226D4643E56290 /* Cosmos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.debug.xcconfig; sourceTree = "<group>"; };
+		C416EE5E3A3779A734C6FA66336F23D0 /* Cosmos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cosmos-dummy.m"; sourceTree = "<group>"; };
+		CF32F8480AFCAED46E895FE8EAA188BE /* CosmosSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSettings.swift; path = Cosmos/CosmosSettings.swift; sourceTree = "<group>"; };
+		CF4B63DB4F3B44826889813ECAC78C55 /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayerHelper.swift; path = Cosmos/CosmosLayerHelper.swift; sourceTree = "<group>"; };
+		D11DB961A1115F1E06B74054B6DF9AC0 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosAccessibility.swift; path = Cosmos/CosmosAccessibility.swift; sourceTree = "<group>"; };
+		D320F48888A811622A6C762C99EDD0E0 /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
+		D7726A9C1E664326424DBB5CBB8BBBFB /* DropDown-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DropDown-Info.plist"; sourceTree = "<group>"; };
+		DCC6635FEB9068922CAEE49DE9EE8D01 /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
+		E1D5F87565FFC6FC3929A8870FCA4302 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
+		E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Genshin Stater-umbrella.h"; sourceTree = "<group>"; };
+		F9233829EC5583DE45053D1D183B1B3F /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouchTarget.swift; path = Cosmos/Helpers/CosmosTouchTarget.swift; sourceTree = "<group>"; };
+		FC5E52F7EBE0CF6DD875AEEA2B761C8C /* Cosmos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2BC131A33527EEF55D2821BF857C4DC0 /* Frameworks */ = {
+		6DEC9D66D25D7967B167DEA713C2359C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD2D923F133732490FA00EF228FC80C /* Foundation.framework in Frameworks */,
+				209D9DD6A82F26B8032A43B060B5D164 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808BE4E171BD75B6477EC2B77490C2B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34D86F4481D9328BF45B637B906B3122 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36FC41FD36F33350F2D73F22FB52FE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6456CFB8870B6765098392B1D81FBB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		47DD711F635EAC1276F66204418DED50 /* Targets Support Files */ = {
+		1AE040DBFF3DC0DC2684F08F9A414708 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7AA1C7775F0D623F230AB9C7F5AFCE0A /* Pods-Genshin Stater */,
+				32D9E84419B1B6373687D0D2B05F9C1B /* DropDown.modulemap */,
+				1CA71CF35E9A842C4AEE16ED1E2FEE66 /* DropDown-dummy.m */,
+				D7726A9C1E664326424DBB5CBB8BBBFB /* DropDown-Info.plist */,
+				5E3309A2090B46A190C28E1362B46DF4 /* DropDown-prefix.pch */,
+				DCC6635FEB9068922CAEE49DE9EE8D01 /* DropDown-umbrella.h */,
+				A925C4836759467CB4509C5BACCB0F4E /* DropDown.debug.xcconfig */,
+				67EE9DB18A3BD4D8A3824F968EF02104 /* DropDown.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DropDown";
+			sourceTree = "<group>";
+		};
+		26AF16FD5BBACC6805B87135153EB2AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C8DE65A4EB411595274B2067989AAB5 /* Cosmos */,
+				4AF59AF527655EF9D475AA705F1B45EC /* DropDown */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4AF59AF527655EF9D475AA705F1B45EC /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				46F6C0B225E6F4F873ABB6595728413E /* DPDConstants.swift */,
+				14529C381FB0F1770C55761578453A07 /* DPDKeyboardListener.swift */,
+				523A6771F0F19939DF1ED7CC1DEF1D0F /* DPDUIView+Extension.swift */,
+				E1D5F87565FFC6FC3929A8870FCA4302 /* DropDown.swift */,
+				B515AA05015BFDEB632161FC8021DA83 /* DropDown+Appearance.swift */,
+				5461E13ADDDA8F4CFB22A1DC69DF9963 /* DropDownCell.swift */,
+				F45D4A241DA8315C10CE4CCAB4752F17 /* Resources */,
+				1AE040DBFF3DC0DC2684F08F9A414708 /* Support Files */,
+			);
+			name = DropDown;
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		5088B96E4BAC67933FEE5072BA6E00D4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2B211C80C04240ABDF5808B89001B19 /* Pods-Genshin Stater */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -54,28 +194,45 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7AA1C7775F0D623F230AB9C7F5AFCE0A /* Pods-Genshin Stater */ = {
+		6C8DE65A4EB411595274B2067989AAB5 /* Cosmos */ = {
 			isa = PBXGroup;
 			children = (
-				D05D2B04F22DA41C0A6E5756CF17F367 /* Pods-Genshin Stater.modulemap */,
-				4BCA5B33DDE65119414D8944A052720E /* Pods-Genshin Stater-acknowledgements.markdown */,
-				7F1F9237686F8FC579D7DC25D816AE93 /* Pods-Genshin Stater-acknowledgements.plist */,
-				FB9E1AAB02CCB2575225CD1A4F61ACB8 /* Pods-Genshin Stater-dummy.m */,
-				85AFE966CF42E9EBE53157840D2A60F3 /* Pods-Genshin Stater-Info.plist */,
-				C514696642E5A1E3CEE711772B961A38 /* Pods-Genshin Stater-umbrella.h */,
-				3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */,
-				BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */,
+				D11DB961A1115F1E06B74054B6DF9AC0 /* CosmosAccessibility.swift */,
+				962D438BA18BF3A3E09415317A02D2AC /* CosmosDefaultSettings.swift */,
+				CF4B63DB4F3B44826889813ECAC78C55 /* CosmosLayerHelper.swift */,
+				BBC17861970CA412E5A95C6BF0E84894 /* CosmosLayers.swift */,
+				771559C14447926FCA6A2FB6D7FACBB3 /* CosmosLocalizedRating.swift */,
+				6FD894444D395C74E95BFA0779695FC4 /* CosmosRating.swift */,
+				CF32F8480AFCAED46E895FE8EAA188BE /* CosmosSettings.swift */,
+				48DE050900DCD1909080DB24096F9B11 /* CosmosSize.swift */,
+				05F4629B04C806A5D4B9178283ABE6AA /* CosmosText.swift */,
+				5B4DF3BD5AD9F2DC52779ADC1E83EB28 /* CosmosTouch.swift */,
+				F9233829EC5583DE45053D1D183B1B3F /* CosmosTouchTarget.swift */,
+				374EF378DCA7FD23325DA725BD60360C /* CosmosView.swift */,
+				6B2768D00AF09AF943B6CBA0DAE3B63E /* RightToLeft.swift */,
+				B55FBD2B65942F6A0C1B1D241BBD4F35 /* StarFillMode.swift */,
+				502EDBEDBE4D1FED41536CA7A4E31D05 /* StarLayer.swift */,
+				E1F5CCB2EAF41DF7DB87EAD456DC7CAF /* Support Files */,
+			);
+			name = Cosmos;
+			path = Cosmos;
+			sourceTree = "<group>";
+		};
+		C2B211C80C04240ABDF5808B89001B19 /* Pods-Genshin Stater */ = {
+			isa = PBXGroup;
+			children = (
+				952726EA05F9ACFF11CBA352A41941B7 /* Pods-Genshin Stater.modulemap */,
+				9185176DA0C34B55024BFA83EDB5D165 /* Pods-Genshin Stater-acknowledgements.markdown */,
+				B3ED9B68EAE7DC2173ADAF1DB609B7EA /* Pods-Genshin Stater-acknowledgements.plist */,
+				96F020216025A0D4394EBF34DB542715 /* Pods-Genshin Stater-dummy.m */,
+				5FAAD24F5B8A5DF48C8548B3DE11321E /* Pods-Genshin Stater-frameworks.sh */,
+				6F994A1383AADC22A4783DECFAE1E1BA /* Pods-Genshin Stater-Info.plist */,
+				E5DABB40111F4E719A332308C72470DB /* Pods-Genshin Stater-umbrella.h */,
+				45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */,
+				35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */,
 			);
 			name = "Pods-Genshin Stater";
 			path = "Target Support Files/Pods-Genshin Stater";
-			sourceTree = "<group>";
-		};
-		B1C0700C174EC6AFE4A45063F35664BD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -83,9 +240,20 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				B1C0700C174EC6AFE4A45063F35664BD /* Products */,
-				47DD711F635EAC1276F66204418DED50 /* Targets Support Files */,
+				26AF16FD5BBACC6805B87135153EB2AB /* Pods */,
+				CFD399B1A453479062A8A28D6624EEBD /* Products */,
+				5088B96E4BAC67933FEE5072BA6E00D4 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CFD399B1A453479062A8A28D6624EEBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */,
+				9B6725B782188F18CB76A740433F14E4 /* DropDown */,
+				73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -96,36 +264,113 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E1F5CCB2EAF41DF7DB87EAD456DC7CAF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8763DADC4274CD4BA044AE087B8F8533 /* Cosmos.modulemap */,
+				C416EE5E3A3779A734C6FA66336F23D0 /* Cosmos-dummy.m */,
+				43F663D69D56F89E0F3E3597D48927B3 /* Cosmos-Info.plist */,
+				88BE83809D186CEC4D720AAF43F7B1D7 /* Cosmos-prefix.pch */,
+				50FAADBFC4AF014D9371F968355F9D4F /* Cosmos-umbrella.h */,
+				BDD01A38AE2ABDB93F226D4643E56290 /* Cosmos.debug.xcconfig */,
+				FC5E52F7EBE0CF6DD875AEEA2B761C8C /* Cosmos.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Cosmos";
+			sourceTree = "<group>";
+		};
+		F45D4A241DA8315C10CE4CCAB4752F17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D320F48888A811622A6C762C99EDD0E0 /* DropDownCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		300B9146EEDACA4CE099F6D9F88A99B8 /* Headers */ = {
+		40097E5779029102CCD9C3E4EE752DDF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE15EAE3162317A1BEB4B7746E9DA958 /* Pods-Genshin Stater-umbrella.h in Headers */,
+				2FCFA7D464D486EC1E486FFF2C21B4ED /* Cosmos-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97CE91431E229797751455423C79CA4F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0A8C46EEE733B55971B1CC5ED65C9AA /* DropDown-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0E813A096DCB4DA9D6540458F65E97B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B996926B8FC3AAF9E3530168FA56F6 /* Pods-Genshin Stater-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7DECBAED43E01A57ECBB0D0992B9AE2F /* Pods-Genshin Stater */ = {
+		00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 403D9F7D687F54CBA078A41F70207D83 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */;
+			buildConfigurationList = D5531D3CEF3EBE4420E9BFCEFA9DD7F6 /* Build configuration list for PBXNativeTarget "Cosmos" */;
 			buildPhases = (
-				300B9146EEDACA4CE099F6D9F88A99B8 /* Headers */,
-				70F90CC19867C990D81B607268F78090 /* Sources */,
-				2BC131A33527EEF55D2821BF857C4DC0 /* Frameworks */,
-				8D6242E00BF559D165A4AB78BC0C1266 /* Resources */,
+				40097E5779029102CCD9C3E4EE752DDF /* Headers */,
+				B1B8AB666CBBC24142B5B2D2C578F7E6 /* Sources */,
+				6DEC9D66D25D7967B167DEA713C2359C /* Frameworks */,
+				C77B64B25EBB18C8D211C061D92B0B4F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = Cosmos;
+			productName = Cosmos;
+			productReference = 05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos */;
+			productType = "com.apple.product-type.framework";
+		};
+		7DECBAED43E01A57ECBB0D0992B9AE2F /* Pods-Genshin Stater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C41211A6D13809F19B44748F0451E69D /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */;
+			buildPhases = (
+				B0E813A096DCB4DA9D6540458F65E97B /* Headers */,
+				B41590715E14A1B7CD05C8BFD939B96C /* Sources */,
+				C36FC41FD36F33350F2D73F22FB52FE7 /* Frameworks */,
+				8F09FEE20734735DC4191C5776B2F99E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DBA5D6679222813990ABEF0083B455A /* PBXTargetDependency */,
+				3AD23F544A67EF704784670472358F8D /* PBXTargetDependency */,
+			);
 			name = "Pods-Genshin Stater";
 			productName = Pods_Genshin_Stater;
 			productReference = 73881260C98A6769309CEF1FB8034AB0 /* Pods-Genshin Stater */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53052E6CBA1E65D6EF818199E617AC68 /* Build configuration list for PBXNativeTarget "DropDown" */;
+			buildPhases = (
+				97CE91431E229797751455423C79CA4F /* Headers */,
+				48864C435B3DB37698CF568C638CF98F /* Sources */,
+				808BE4E171BD75B6477EC2B77490C2B1 /* Frameworks */,
+				EFDE5B37A62BFF2F9A9BD2023B960CD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DropDown;
+			productName = DropDown;
+			productReference = 9B6725B782188F18CB76A740433F14E4 /* DropDown */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -146,40 +391,109 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = B1C0700C174EC6AFE4A45063F35664BD /* Products */;
+			productRefGroup = CFD399B1A453479062A8A28D6624EEBD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */,
+				E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */,
 				7DECBAED43E01A57ECBB0D0992B9AE2F /* Pods-Genshin Stater */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8D6242E00BF559D165A4AB78BC0C1266 /* Resources */ = {
+		8F09FEE20734735DC4191C5776B2F99E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C77B64B25EBB18C8D211C061D92B0B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDE5B37A62BFF2F9A9BD2023B960CD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68E1653C561E14BBEAC9CF4873570D58 /* DropDownCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		70F90CC19867C990D81B607268F78090 /* Sources */ = {
+		48864C435B3DB37698CF568C638CF98F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0D3DBF02100239C45263D21DE0F538A /* Pods-Genshin Stater-dummy.m in Sources */,
+				74012B832FAF67F8D62A2B27CDAFE8B5 /* DPDConstants.swift in Sources */,
+				89A72A55273CE358DC4E7600F785C37B /* DPDKeyboardListener.swift in Sources */,
+				B73E510E851686F8184E26986A470458 /* DPDUIView+Extension.swift in Sources */,
+				84459C4824533C9C4FD12AFC941F3CE1 /* DropDown.swift in Sources */,
+				515E22E4255B6073C1897BDDB091A2B8 /* DropDown+Appearance.swift in Sources */,
+				907338727C09F65DB75AA7AB9E10C3B4 /* DropDown-dummy.m in Sources */,
+				BDC10974A8641F01C5665C61EA37A153 /* DropDownCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1B8AB666CBBC24142B5B2D2C578F7E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67318BB3E280E0D8FB9161E5557B71E3 /* Cosmos-dummy.m in Sources */,
+				772B7FA4384C442360975E95D12383BA /* CosmosAccessibility.swift in Sources */,
+				61773DD4962BFA6D7E38DD8A9D998A8A /* CosmosDefaultSettings.swift in Sources */,
+				99DB653A1F70EAEC3490B69E4AC9011F /* CosmosLayerHelper.swift in Sources */,
+				ABFB9BF862F602531FE8131A350542B0 /* CosmosLayers.swift in Sources */,
+				CB4D7FEF62D7943C6E236467F3C516C1 /* CosmosLocalizedRating.swift in Sources */,
+				3E410558A06008A95E19C2FE1D5E014E /* CosmosRating.swift in Sources */,
+				4D8675E7F1C6254904557B7FB84E1C51 /* CosmosSettings.swift in Sources */,
+				8322D938B4C21C24E70FBA1B95797AC9 /* CosmosSize.swift in Sources */,
+				1C6156B7023F7F69398B4119A0AA492B /* CosmosText.swift in Sources */,
+				7AA4F48458A149B12BCF7E8EB147E25C /* CosmosTouch.swift in Sources */,
+				449B7D4D4BD118C480786A347A377054 /* CosmosTouchTarget.swift in Sources */,
+				EC1899EF909D17F47C5C0C2064BD2533 /* CosmosView.swift in Sources */,
+				9755F83E9DE9BA2CC07496C16AF80B42 /* RightToLeft.swift in Sources */,
+				5E87677262463376144E8B5F6916FCCB /* StarFillMode.swift in Sources */,
+				7E298ECE9B23835D17446526E27D2D67 /* StarLayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B41590715E14A1B7CD05C8BFD939B96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAD96F150454AB138E25165C63D3436A /* Pods-Genshin Stater-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3AD23F544A67EF704784670472358F8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DropDown;
+			target = E9F9401E9C74C0C393164FD8D86D0068 /* DropDown */;
+			targetProxy = E1BA6481CBBE20B8210B3CB791001FDB /* PBXContainerItemProxy */;
+		};
+		4DBA5D6679222813990ABEF0083B455A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cosmos;
+			target = 00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */;
+			targetProxy = EA25F1277868B0E49A59115BB6909E21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		1EAE5F54F73ECFA191B7669E6ABDFEBD /* Debug */ = {
+		552FC3CC7242022BB11B3EA4FC10E6DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3ACC1C82C4E32CD18BEAFAB8C8A69FED /* Pods-Genshin Stater.debug.xcconfig */;
+			baseConfigurationReference = 45E9DCECB33891696E407259177D53DC /* Pods-Genshin Stater.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -193,7 +507,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -214,12 +528,10 @@
 			};
 			name = Debug;
 		};
-		6B5D494B8B9312DD19CDB24D024DE687 /* Release */ = {
+		6EC69149E28F5E27C4706FFEAF8B58F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF490532A9463A888689317C2DB78227 /* Pods-Genshin Stater.release.xcconfig */;
+			baseConfigurationReference = BDD01A38AE2ABDB93F226D4643E56290 /* Cosmos.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -228,31 +540,29 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Cosmos/Cosmos-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cosmos/Cosmos-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Cosmos/Cosmos.modulemap";
+				PRODUCT_MODULE_NAME = Cosmos;
+				PRODUCT_NAME = Cosmos;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
+		8DE5143C03248BB6CD542DE3963D6F3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -305,7 +615,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -318,7 +628,7 @@
 			};
 			name = Debug;
 		};
-		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -368,7 +678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -380,23 +690,183 @@
 			};
 			name = Release;
 		};
+		C24518E891FAA59668669823639498EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67EE9DB18A3BD4D8A3824F968EF02104 /* DropDown.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
+				PRODUCT_MODULE_NAME = DropDown;
+				PRODUCT_NAME = DropDown;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C78C1BA85703BCE69743B7C85B847990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC5E52F7EBE0CF6DD875AEEA2B761C8C /* Cosmos.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cosmos/Cosmos-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cosmos/Cosmos-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cosmos/Cosmos.modulemap";
+				PRODUCT_MODULE_NAME = Cosmos;
+				PRODUCT_NAME = Cosmos;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CEBD0B25809AC31791CF0DC37C75F4D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35E31FD0123F48E98242AEA640842A00 /* Pods-Genshin Stater.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Genshin Stater/Pods-Genshin Stater.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E2CDE7BD114C532701D2E79C5CB4CAA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A925C4836759467CB4509C5BACCB0F4E /* DropDown.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DropDown/DropDown-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
+				PRODUCT_MODULE_NAME = DropDown;
+				PRODUCT_NAME = DropDown;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		403D9F7D687F54CBA078A41F70207D83 /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1EAE5F54F73ECFA191B7669E6ABDFEBD /* Debug */,
-				6B5D494B8B9312DD19CDB24D024DE687 /* Release */,
+				8DE5143C03248BB6CD542DE3963D6F3A /* Debug */,
+				9E406C6AAF85E580207CD97B0044DEAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+		53052E6CBA1E65D6EF818199E617AC68 /* Build configuration list for PBXNativeTarget "DropDown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
-				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+				E2CDE7BD114C532701D2E79C5CB4CAA8 /* Debug */,
+				C24518E891FAA59668669823639498EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C41211A6D13809F19B44748F0451E69D /* Build configuration list for PBXNativeTarget "Pods-Genshin Stater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552FC3CC7242022BB11B3EA4FC10E6DB /* Debug */,
+				CEBD0B25809AC31791CF0DC37C75F4D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5531D3CEF3EBE4420E9BFCEFA9DD7F6 /* Build configuration list for PBXNativeTarget "Cosmos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC69149E28F5E27C4706FFEAF8B58F4 /* Debug */,
+				C78C1BA85703BCE69743B7C85B847990 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

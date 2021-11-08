@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 9b34222a5c3dc82c3a95e2786c7de5702b94cabc
+PODS:
+  - Cosmos (23.0.0)
+  - DropDown (2.3.13)
+
+DEPENDENCIES:
+  - Cosmos (~> 23.0)
+  - DropDown
+
+SPEC REPOS:
+  trunk:
+    - Cosmos
+    - DropDown
+
+SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+
+PODFILE CHECKSUM: 90cd48498c94b0c2a06f1d57f7b7307fe7b7523d
 
 COCOAPODS: 1.11.2
