@@ -21,8 +21,8 @@ class CharacterViewController: UITableViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    
+
+
     @IBAction func reloadAction(_ sender: UIBarButtonItem) {
         alertWithConfrim(title: "Warning", msg: "Do you want to load the template data? (All the data will be erased!)", callback: {res in
             importDataToCoreData("Genshin_Impact_All_Character_Stats")
@@ -30,13 +30,13 @@ class CharacterViewController: UITableViewController {
             self.tableView.reloadData()
         })
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem=self.editButtonItem
         NotificationCenter.default.addObserver(self, selector: #selector(afterSaveAction), name: NSNotification.Name(rawValue: SAVE_DONE_NOTIFICATION_NAME), object: nil)
     }
-    
+
     @objc func afterSaveAction(){
         content.reload()
         tableView.reloadData()
@@ -175,9 +175,17 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class CharacterDetailScrollView : UIScrollView{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.endEditing(true)
+    }
+}
 
-    @IBOutlet weak var scrollView: UIScrollView!
+
+class CharacterDetailController : UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    @IBOutlet weak var scrollView: CharacterDetailScrollView!
+    @IBOutlet weak var viewInScroll: UIView!
     var saveOffsetForKeyBoard: CGPoint?
     var levelChangeList: [Int: LevelModifyRecord] = [:]
 
@@ -192,17 +200,18 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     @IBOutlet weak var charAvatar: UIImageView!
     @IBOutlet weak var charRarity: UISegmentedControl!
     @IBOutlet weak var levelPicker: UIPickerView!
-    
+
     @IBOutlet weak var comments: UITextView!
     var pickerData: [String] = []
+
     var data : CharacterItem!
     var current : Int?
     var keyboardMarginY:CGFloat = 0
     var keyboardAnimitionDuration: TimeInterval = 0
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
-    
-    @IBAction func loadImageFromLocal(_ sender: AnyObject){
+
+    @objc func loadImageFromLocal(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -212,7 +221,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
             alert(title: "Error", msg: "Cannot open the photo library")
         }
     }
-    
+
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
         //get the changed value to
         if data.name != charName.text {
@@ -232,13 +241,13 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         }())
         data.role = charRole.text!
         data.rating = charRating.rating
-        
+
         levelChangeList.forEach{ k, v in
             data.data[k].baseATK = v.BaseATK
             data.data[k].baseDEF = v.BaseDEF
             data.data[k].baseHP = v.BaseHP
         }
-        
+
         //save the value to database
         let result = data.save()
         if !result.success {
@@ -248,26 +257,22 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
+
     @IBAction func levelChangedAction(_ sender: UITextField) {
         if let curr = current{
             levelChangeList[curr] = LevelModifyRecord(hp: Int(charBaseHP.text!) ?? data.data[curr].baseHP, atk: Int(charBaseATK.text!) ?? data.data[curr].baseATK, def: Int(charBaseDEF.text!) ?? data.data[curr].baseDEF)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.delegate = self
+
+//        scrollView.delaysContentTouches = false
+
         self.levelPicker.delegate = self
         self.levelPicker.dataSource = self
         
         scrollView.keyboardDismissMode = .none
-
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
-        recognizer.numberOfTapsRequired = 2
-        recognizer.numberOfTouchesRequired = 1
-        scrollView.addGestureRecognizer(recognizer)
-
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
@@ -283,6 +288,13 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         }else{
             charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: data.name)!)
         }
+
+        let avatarRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.loadImageFromLocal))
+        avatarRecognizer.numberOfTapsRequired = 1
+        avatarRecognizer.numberOfTouchesRequired = 1
+        charAvatar.addGestureRecognizer(avatarRecognizer)
+
+
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
@@ -325,10 +337,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         })
     }
     
-    func updateData(data:CharacterItem){
-        self.data = data
-    }
-    
+
 /// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -359,13 +368,13 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
 /// End PickerView
 
 /// Start keyboard event.
-    @objc func touch(){
-        self.view.endEditing(true)
+
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
 
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
 
     func findViewThatIsFirstResponder(view: UIView) -> UIView? {
         if view.isFirstResponder {
@@ -418,10 +427,3 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     /// End keyboard events and actions functions
 }
 
-//extension CharacterDetailController:UITextViewDelegate{
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        scrollView.endEditing(true)
-//        return true
-//    }
-//}
