@@ -9,6 +9,12 @@ import UIKit
 import DropDown
 import Cosmos
 
+extension UIImage {
+    func isEmpty() -> Bool {
+        return cgImage == nil && ciImage == nil
+    }
+}
+
 class CharacterViewController: UITableViewController {
     var content = CharacterContainer()
     
@@ -42,7 +48,14 @@ class CharacterViewController: UITableViewController {
         cell.characterRarity.clipsToBounds = true
         cell.characterRarity.contentMode = .scaleAspectFit
         cell.charavterRating.text = String(format: "%01.1f", 0.0)
-        cell.characterImage.image = UIImage(named: item.name)
+        let avatar = UIImage(named: (item.name == "New Character" ? "default_character" : item.name))
+        if let a = avatar, !a.isEmpty() {
+            cell.characterImage.image = avatar
+        }else{
+            cell.characterImage.image = UIImage(data: Genshin_Stater.loadImage(imgName: item.name)!)
+        }
+
+
         cell.characterImage.clipsToBounds = true
         cell.characterImage.contentMode = .scaleAspectFit
         cell.characterRole.text = item.role
@@ -88,7 +101,7 @@ class CharacterViewController: UITableViewController {
         }else{
             alert(title: "Error", msg: "Cannot open the detail page!")
         }
-
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -144,7 +157,7 @@ class CharacterCell : UITableViewCell {
     }
 }
 
-class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var scrollView: UIScrollView!
     var saveOffsetForKeyBoard: CGPoint?
@@ -165,13 +178,22 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     
     var data : CharacterItem!
     var dataCopy: CharacterItem! //The copy of data
-
+    
     var keyboardMarginY:CGFloat = 0
     var keyboardAnimitionDuration: TimeInterval = 0
     var viewDistanceFromTopScreen: CGFloat = 0
     var offsetDistance: CGFloat = 0
 
-
+    @IBAction func loadImageFromLocal(_ sender: AnyObject){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(picker, animated: true, completion: {() -> Void in})
+        }else{
+            alert(title: "Error", msg: "Cannot open the photo library")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,9 +215,14 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charName.text = data.name
         charRole.text = data.role
         charWeapon.text = data.data[data.data.startIndex].weapon
-        charAvatar.image = UIImage(named: data.name)
         comments.text = data.data[data.data.startIndex].comment
 
+        let avatar = UIImage(named: (data.name == "New Character" ? "default_character" : data.name))
+        if let a = avatar, !a.isEmpty() {
+            charAvatar.image = avatar
+        }else{
+            charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: data.name)!)
+        }
         charRating.settings.fillMode = .half
         charRating.settings.disablePanGestures = true
         charRating.rating = data.rating
@@ -229,13 +256,22 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charBaseDEF.text = String(data.data[data.data.startIndex].baseDEF)
 
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let pickedImage = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as! UIImage
+        Genshin_Stater.saveImage(img: pickedImage, name: self.data.name)
+        picker.dismiss(animated: true, completion: {
+            self.charAvatar.image = UIImage(data: Genshin_Stater.loadImage(imgName: self.data.name)!)
+        })
+    }
 
     func updateData(data:CharacterItem){
         self.data = data
     }
     
-    
 
+    
+    
 /// Start PickerView Functions.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -257,18 +293,18 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
         charBaseDEF.text = String(data.data[row].baseDEF)
     }
 /// End PickerView
-
     
-
+    
+    
 /// Start keyboard event.
     @objc func touch(){
         self.view.endEditing(true)
     }
-
+    
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     func findViewThatIsFirstResponder(view: UIView) -> UIView? {
         if view.isFirstResponder {
             return view
@@ -291,7 +327,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
                 safeArea.size.height -= scrollView.contentOffset.y
                 safeArea.size.height -= keyboardSize.height
                 safeArea.size.height -= view.safeAreaInsets.bottom
-
+                
                 let activeField: UIView? = findViewThatIsFirstResponder(view: view)
 
                 if let activeField = activeField{
@@ -319,7 +355,7 @@ class CharacterDetailController : UIViewController, UIScrollViewDelegate, UIPick
     }
     /// End keyboard events and actions functions
 
-
+    
 }
 
 //extension CharacterDetailController:UITextViewDelegate{

@@ -22,3 +22,22 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
 }
+
+func loadImage(imgName: String) -> Data? {
+    if FileManager.default.fileExists(atPath: imgName.appending(".jpg")) {
+        let url = NSURL(string: imgName)
+        let data = NSData(contentsOf: url! as URL)
+        return data as Data?
+    }
+    return nil
+}
+
+func saveImage(img: UIImage, name: String) -> Data?{
+    let fileManager = FileManager.default
+    let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+    let filePath = "\(rootPath)/\(name).jpg"
+    let imageData = img.jpegData(compressionQuality: 1.0)
+    fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+    return imageData ?? nil
+}
+
