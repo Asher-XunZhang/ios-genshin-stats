@@ -38,6 +38,7 @@ Here is the fields
 - Dynmic data render according to the selected level
 
 ## References
+- [Genshin Impact Dataset](https://www.kaggle.com/genshinplayer/genshin-impact-characters-stats)
 - [Star Rating Plugin - Cosmos](https://github.com/evgenyneu/Cosmos#:~:text=This%20is%20a%20UI%20control,those%20inescapable%201%2Dstar%20reviews!)
 
 
