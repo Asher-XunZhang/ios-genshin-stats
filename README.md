@@ -33,7 +33,7 @@ Here is the fields
 - Edit the character table
 - Deteil info of character
 - Delete in the detail page
-- Upload and save image of character
+- Upload and save avatar image of character
 - Core data storage of all data
 - Dynmic data render according to the selected level
 
