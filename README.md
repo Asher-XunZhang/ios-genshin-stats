@@ -9,6 +9,11 @@
 In this project, we are going to desian and helper application to get the statsatic of characters data for the **Genshin Impact Game**. Also, the user can modify the current data and add new customer characters.
 
 ## Model
+We have the basic NSManagerObject to save the data to the core data
+Here is the fields
+| Name | Type | Des |
+| :----: | :----: |
+|Name| String | The Character name|
 
 
 ## Feature
