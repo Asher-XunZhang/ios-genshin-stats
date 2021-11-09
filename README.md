@@ -29,13 +29,15 @@ Here is the fields
 |comment|String|The comment of character|
 
 ## Feature
-- Load the csv file *Built in* of character data.
-- Edit the character table
-- Deteil info of character
-- Delete in the detail page
-- Upload and save avatar image of character
-- Core data storage of all data
+### In the main page
+- Import character data from a specific csv file (the refresh icon in the upper right corner of the navigation bar).
+- Edit the character table (Enable to delete character)
+- Jump to detail info page of character
+### In the detail page
+- Delete the character
+- Upload/change and save avatar image of character into Core Data.
 - Dynmic data render according to the selected level
+- Return to the main page
 
 ## References
 - [Genshin Impact Dataset](https://www.kaggle.com/genshinplayer/genshin-impact-characters-stats)
